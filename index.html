@@ -13,7 +13,7 @@
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <!-- Header / Nav (top announcement bar removed) -->
+  <!-- Header / Nav -->
   <header class="header" id="top">
     <div class="container header__inner">
       <a class="brand" href="#top" aria-label="WLV Investing Home">
@@ -34,6 +34,7 @@
         <ul class="nav__menu" id="navMenu">
           <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
+          <li><a href="#criteria">Criteria</a></li>
           <li><a href="#how">How It Works</a></li>
           <li><a href="#portfolio">Past Projects</a></li>
           <li><a href="#faq">FAQ</a></li>
@@ -42,6 +43,20 @@
       </nav>
     </div>
   </header>
+
+  <!-- Mobile sticky CTA -->
+  <div class="mobile-cta" id="mobileCta" aria-hidden="true">
+    <div class="mobile-cta__inner">
+      <div class="mobile-cta__text">
+        <strong>WLV Investing</strong>
+        <span>Request investor info</span>
+      </div>
+      <a class="btn btn--small" href="#contact">Request</a>
+    </div>
+  </div>
+
+  <!-- Back to top -->
+  <button class="backtotop" id="backToTop" type="button" aria-label="Back to top">↑</button>
 
   <main>
     <!-- Hero -->
@@ -95,7 +110,7 @@
                 <div class="mini-stat__v">Syndications & JVs</div>
               </div>
               <div class="mini-stat">
-                <div class="mini-stat__k">Communication</div>
+                <div class="mini-stat__k">Updates</div>
                 <div class="mini-stat__v">Simple & Consistent</div>
               </div>
             </div>
@@ -104,7 +119,7 @@
 
             <div class="stack">
               <a class="btn btn--full" href="#contact">Request Investor Info</a>
-              <a class="btn btn--ghost btn--full" href="#services">Explore Services</a>
+              <a class="btn btn--ghost btn--full" href="#criteria">View Criteria</a>
             </div>
 
             <p class="microcopy">
@@ -123,23 +138,23 @@
         <div class="section__header reveal">
           <h2>About WLV Investing</h2>
           <p>
-            Our mission is to help investors access institutional-style multifamily opportunities with
-            a process that prioritizes discipline, transparency, and alignment.
+            Our mission is to help investors access multifamily opportunities with discipline, transparency,
+            and alignment—so the plan is clear and the execution is measurable.
           </p>
         </div>
 
         <div class="grid grid--3">
           <div class="card card--lift reveal">
             <h3>Mission</h3>
-            <p>Create durable, risk-aware investment opportunities in multifamily real estate that support long-term wealth building.</p>
+            <p>Create durable, risk-aware investment opportunities that support long-term wealth building.</p>
           </div>
           <div class="card card--lift reveal">
             <h3>Vision</h3>
-            <p>Be a trusted investment partner known for clear communication, strong operations, and investor-focused execution.</p>
+            <p>Be a trusted partner known for clear communication, strong operations, and investor-first execution.</p>
           </div>
           <div class="card card--lift reveal">
             <h3>Values</h3>
-            <p>Discipline in underwriting, integrity in reporting, and alignment in every deal structure—so investors understand what they own.</p>
+            <p>Discipline in underwriting, integrity in reporting, and alignment in every deal structure.</p>
           </div>
         </div>
 
@@ -189,8 +204,8 @@
         <div class="section__header reveal">
           <h2>Services</h2>
           <p>
-            WLV Investing offers structured ways to participate in multifamily opportunities—tailored
-            for passive investors and partners seeking aligned joint ventures.
+            Two clear paths to participate in multifamily opportunities—tailored for passive investors
+            and aligned joint venture partners.
           </p>
         </div>
 
@@ -203,8 +218,8 @@
             </p>
             <ul class="bullets">
               <li>Passive participation with professional operations</li>
-              <li>Deal-specific reporting and ongoing communication</li>
-              <li>Aligned incentives through structured deal terms</li>
+              <li>Clear deal summaries and consistent reporting</li>
+              <li>Aligned incentives through structured terms</li>
             </ul>
             <a class="link" href="#contact">Request investor info →</a>
           </div>
@@ -216,9 +231,9 @@
               alignment, and a defined business plan.
             </p>
             <ul class="bullets">
-              <li>Partner alignment on strategy, capital, and execution</li>
-              <li>Clear responsibilities and transparent governance</li>
-              <li>Focused plans for asset performance improvement</li>
+              <li>Defined responsibilities and governance</li>
+              <li>Focused plan to improve asset performance</li>
+              <li>Transparent decision-making</li>
             </ul>
             <a class="link" href="#contact">Discuss a JV →</a>
           </div>
@@ -234,8 +249,58 @@
       </div>
     </section>
 
+    <!-- Investment Criteria -->
+    <section class="section" id="criteria">
+      <div class="container">
+        <div class="section__header reveal">
+          <h2>Investment Criteria</h2>
+          <p>
+            A simple, clear framework. This builds trust without making claims—swap the placeholders as you refine your targets.
+          </p>
+        </div>
+
+        <div class="criteria reveal">
+          <div class="criteria__item card card--lift">
+            <div class="criteria__k">Asset Type</div>
+            <div class="criteria__v">Multifamily (value-add / stabilized)</div>
+            <div class="criteria__s">Target: resilient demand, operational upside</div>
+          </div>
+
+          <div class="criteria__item card card--lift">
+            <div class="criteria__k">Markets</div>
+            <div class="criteria__v">TBD (select growth + stable employment)</div>
+            <div class="criteria__s">Target: fundamentals first, avoid hype</div>
+          </div>
+
+          <div class="criteria__item card card--lift">
+            <div class="criteria__k">Risk Controls</div>
+            <div class="criteria__v">Conservative underwriting + reserves</div>
+            <div class="criteria__s">Stress-tests: rate, vacancy, expenses</div>
+          </div>
+
+          <div class="criteria__item card card--lift">
+            <div class="criteria__k">Business Plan</div>
+            <div class="criteria__v">NOI growth + measured improvements</div>
+            <div class="criteria__s">Clear plan, measurable milestones</div>
+          </div>
+
+          <div class="criteria__item card card--lift">
+            <div class="criteria__k">Communication</div>
+            <div class="criteria__v">Simple reporting cadence</div>
+            <div class="criteria__s">Clear updates tied to metrics</div>
+          </div>
+
+          <div class="criteria__item card card--lift">
+            <div class="criteria__k">Alignment</div>
+            <div class="criteria__v">Investor-first structures</div>
+            <div class="criteria__s">Transparency in terms & decisions</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- How it works -->
-    <section class="section" id="how">
+    <section class="section section--alt" id="how">
       <div class="container">
         <div class="section__header reveal">
           <h2>How It Works</h2>
@@ -253,7 +318,7 @@
               <div class="pstep__content card card--lift">
                 <div class="pstep__kicker">Step 1</div>
                 <h3>Connect</h3>
-                <p>Request investor info. We’ll confirm your goals, timeline, and preferred deal structures.</p>
+                <p>Request investor info. We’ll confirm your goals, timeline, and preferred structures.</p>
               </div>
             </div>
 
@@ -262,7 +327,7 @@
               <div class="pstep__content card card--lift">
                 <div class="pstep__kicker">Step 2</div>
                 <h3>Review Opportunities</h3>
-                <p>When a deal is available, you’ll receive a clear overview: strategy, risks, timeline, and terms.</p>
+                <p>You’ll receive a clear overview: strategy, risks, timeline, and terms (when available).</p>
               </div>
             </div>
 
@@ -271,7 +336,7 @@
               <div class="pstep__content card card--lift">
                 <div class="pstep__kicker">Step 3</div>
                 <h3>Invest (If It Fits)</h3>
-                <p>Invest only if it matches your objectives. We keep the process documented and easy to follow.</p>
+                <p>Invest only if it matches your objectives. The process stays documented and simple.</p>
               </div>
             </div>
 
@@ -289,28 +354,28 @@
         <div class="grid grid--3" style="margin-top:16px;">
           <div class="card card--lift reveal">
             <h3>What You Receive</h3>
-            <p>Clear deal summaries, risk notes, and a simple view of the business plan.</p>
+            <p>Clear summaries, risk notes, and a simple view of the plan.</p>
           </div>
           <div class="card card--lift reveal">
             <h3>What We Execute</h3>
-            <p>Operations, asset management, and NOI-focused improvements with disciplined tracking.</p>
+            <p>Operations, asset management, and NOI-focused improvements.</p>
           </div>
           <div class="card card--lift reveal">
             <h3>What We Share</h3>
-            <p>Consistent reporting and updates tied to real metrics and progress milestones.</p>
+            <p>Updates tied to metrics and progress milestones.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Past Projects -->
-    <section class="section section--alt" id="portfolio">
+    <!-- Past Projects (cleaner "Coming Soon") -->
+    <section class="section" id="portfolio">
       <div class="container">
         <div class="section__header reveal">
           <h2>Past Projects</h2>
           <p>
-            We’ll showcase acquisitions and partnerships here as we close deals. For now, this section is a placeholder
-            so the site is ready when you are.
+            We’ll showcase acquisitions and partnerships here as we close deals. These placeholders keep the site “ready”
+            and look professional until you replace them with real assets.
           </p>
         </div>
 
@@ -318,38 +383,38 @@
           <div class="card project card--lift reveal">
             <div class="project__top">
               <span class="badge">Coming Soon</span>
-              <span class="project__type">Multifamily</span>
+              <span class="project__type">Acquisitions</span>
             </div>
-            <h3 class="project__title">Project Alpha</h3>
-            <p class="project__meta">Location: TBD • Units: TBD</p>
-            <p class="project__desc">Details will be added after closing: strategy, scope, and investor update cadence.</p>
+            <h3 class="project__title">Closed Deals</h3>
+            <p class="project__meta">Market: TBD • Units: TBD</p>
+            <p class="project__desc">We’ll add photos, business plan highlights, and reporting cadence after closing.</p>
           </div>
 
           <div class="card project card--lift reveal">
             <div class="project__top">
               <span class="badge">Coming Soon</span>
-              <span class="project__type">Joint Venture</span>
+              <span class="project__type">Joint Ventures</span>
             </div>
-            <h3 class="project__title">Project Bravo</h3>
-            <p class="project__meta">Location: TBD • Units: TBD</p>
-            <p class="project__desc">A template for future projects—swap in photos, highlights, and milestones later.</p>
+            <h3 class="project__title">JV Partnerships</h3>
+            <p class="project__meta">Strategy: TBD • Timeline: TBD</p>
+            <p class="project__desc">A clean place to show alignment, roles, and measurable milestones.</p>
           </div>
 
           <div class="card project card--lift reveal">
             <div class="project__top">
               <span class="badge">Coming Soon</span>
-              <span class="project__type">Value-Add</span>
+              <span class="project__type">Case Studies</span>
             </div>
-            <h3 class="project__title">Project Charlie</h3>
-            <p class="project__meta">Location: TBD • Units: TBD</p>
-            <p class="project__desc">Use this card to show renovation scope, timeline, and measurable performance improvements.</p>
+            <h3 class="project__title">Performance Updates</h3>
+            <p class="project__meta">NOI: TBD • Renovations: TBD</p>
+            <p class="project__desc">Use this card for before/after metrics and investor-friendly updates.</p>
           </div>
         </div>
       </div>
     </section>
 
     <!-- FAQ -->
-    <section class="section" id="faq">
+    <section class="section section--alt" id="faq">
       <div class="container">
         <div class="section__header reveal">
           <h2>FAQ</h2>
@@ -360,50 +425,28 @@
           <details class="faq__item reveal">
             <summary>What is a multifamily syndication?</summary>
             <div class="faq__content">
-              <p>
-                A syndication is a structure where multiple investors pool capital to acquire a property.
-                Typically, a sponsor team sources the deal, arranges financing, manages operations, and provides reporting.
-              </p>
-            </div>
-          </details>
-
-          <details class="faq__item reveal">
-            <summary>What’s the difference between a syndication and a joint venture?</summary>
-            <div class="faq__content">
-              <p>
-                In a syndication, passive investors typically participate as limited partners. In a joint venture,
-                partners often share more direct involvement, roles, and decision-making—based on the agreement.
-              </p>
+              <p>A syndication is where multiple investors pool capital to acquire a property. A sponsor team manages acquisition, operations, and reporting.</p>
             </div>
           </details>
 
           <details class="faq__item reveal">
             <summary>Do I need to be accredited to invest?</summary>
             <div class="faq__content">
-              <p>
-                It depends on the offering structure. Some opportunities may be open to non-accredited investors,
-                while others may be limited to accredited investors only.
-              </p>
+              <p>It depends on the offering structure. Some opportunities may be limited to accredited investors.</p>
             </div>
           </details>
 
           <details class="faq__item reveal">
             <summary>How do you manage risk?</summary>
             <div class="faq__content">
-              <p>
-                We focus on conservative underwriting, stress-testing scenarios, and operational execution that prioritizes
-                durable cash flow and downside protection. Every investment carries risk, and we aim to make risks clear.
-              </p>
+              <p>We focus on conservative underwriting, stress-testing scenarios, and risk controls like reserves and disciplined operations.</p>
             </div>
           </details>
 
           <details class="faq__item reveal">
             <summary>How often will I receive updates?</summary>
             <div class="faq__content">
-              <p>
-                Update frequency can vary by deal, but our goal is consistent, predictable reporting with clear performance
-                metrics and progress on the business plan.
-              </p>
+              <p>Update frequency varies by deal, but our goal is consistent reporting with clear metrics and progress updates.</p>
             </div>
           </details>
         </div>
@@ -411,7 +454,7 @@
     </section>
 
     <!-- Contact -->
-    <section class="section section--alt" id="contact">
+    <section class="section" id="contact">
       <div class="container">
         <div class="section__header reveal">
           <h2>Contact</h2>
@@ -424,7 +467,7 @@
               <h3 style="margin:0;">Request Investor Info</h3>
               <p class="muted" style="margin:8px 0 0;">We’ll follow up with investor information and next steps.</p>
             </div>
-            <div class="contact-full__pill">CRM Connected</div>
+            <!-- CRM CONNECTED label removed -->
           </div>
 
           <div class="zoho-embed">
@@ -438,7 +481,7 @@
           </div>
 
           <p class="microcopy" style="margin-top:12px;">
-            We respect your privacy. No spam. Unsubscribe anytime.
+            Tip: If the embedded form shows a background image/colors you don’t like, change the Zoho Form theme to a clean minimal style.
           </p>
 
           <p class="microcopy">
@@ -463,6 +506,7 @@
         <div class="footer__links">
           <a href="#about">About</a>
           <a href="#services">Services</a>
+          <a href="#criteria">Criteria</a>
           <a href="#how">How It Works</a>
           <a href="#portfolio">Past Projects</a>
           <a href="#faq">FAQ</a>
