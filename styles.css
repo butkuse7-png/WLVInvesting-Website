@@ -1,3 +1,4 @@
+/* styles.css */
 :root{
   --bg: #070A12;
   --bg2:#0B1020;
@@ -6,8 +7,8 @@
   --text: rgba(255,255,255,.92);
   --muted: rgba(255,255,255,.68);
   --line: rgba(255,255,255,.12);
-  --accent: #7C3AED;   /* purple */
-  --accent2:#22D3EE;   /* cyan */
+  --accent: #7C3AED;
+  --accent2:#22D3EE;
   --shadow: 0 10px 30px rgba(0,0,0,.35);
   --radius: 18px;
   --radius2: 26px;
@@ -33,6 +34,7 @@ a:hover{opacity:.92}
   margin:0 auto;
 }
 
+/* Top bar */
 .topbar{
   position:sticky;
   top:0;
@@ -63,9 +65,10 @@ a:hover{opacity:.92}
   background: rgba(255,255,255,.04);
 }
 
+/* Header */
 .header{
   position:sticky;
-  top:41px; /* below topbar */
+  top:41px;
   z-index:40;
   background: rgba(10,12,20,.55);
   backdrop-filter: blur(14px);
@@ -116,6 +119,7 @@ a:hover{opacity:.92}
   margin:4px 0;
 }
 
+/* Hero */
 .hero{
   position:relative;
   padding:80px 0 28px;
@@ -301,22 +305,6 @@ h1{
 }
 .bullets li{margin:8px 0}
 
-.statcard{
-  border:1px solid var(--line);
-  background: rgba(255,255,255,.03);
-  border-radius: var(--radius2);
-  padding:18px;
-}
-.stat{
-  padding:12px 0;
-  border-bottom:1px solid var(--line);
-}
-.stat:last-child{border-bottom:none}
-.stat__label{color:rgba(255,255,255,.60); font-size:12px; letter-spacing:.08em; text-transform:uppercase}
-.stat__value{font-weight:800; font-size:18px; margin-top:6px}
-.stat__value--small{font-weight:600; font-size:13px; color:var(--muted)}
-.stat--note .stat__label{color: rgba(255,255,255,.50)}
-
 .callout{
   margin-top:18px;
   border-radius: var(--radius2);
@@ -375,42 +363,11 @@ h1{
 }
 .faq__item[open]{background: rgba(255,255,255,.05)}
 
-.contact{
-  display:grid;
-  grid-template-columns: 1.05fr .95fr;
-  gap:18px;
-  align-items:start;
-}
-.form{margin-top:10px}
-.form__row{display:flex; flex-direction:column; gap:8px; margin-bottom:12px}
-label{font-size:13px; color:rgba(255,255,255,.72)}
-input, select{
-  background: rgba(255,255,255,.04);
-  border:1px solid var(--line);
-  border-radius: 14px;
-  padding:12px 12px;
-  color:var(--text);
-  outline:none;
-}
-input:focus, select:focus{
-  border-color: rgba(34,211,238,.50);
-  box-shadow: 0 0 0 4px rgba(34,211,238,.12);
-}
-.checkbox{
-  display:flex; flex-direction:row; align-items:center; gap:10px;
-  user-select:none;
-}
-.checkbox input{width:18px; height:18px}
-.form__status{
-  margin-top:10px;
-  font-size:13px;
-  color: rgba(255,255,255,.75);
-  min-height: 18px;
-}
 .muted{color:var(--muted)}
 .link{color: rgba(34,211,238,.95); font-weight:700}
 .link:hover{opacity:.9}
 
+/* Footer */
 .footer{
   border-top:1px solid var(--line);
   padding:28px 0;
@@ -428,14 +385,29 @@ input:focus, select:focus{
 .footer__links a{color:var(--muted); font-size:14px}
 .footer__links a:hover{color:var(--text)}
 
+/* ---- Zoho full-width contact embed ---- */
+.contact-full{
+  padding: 22px;
+}
+.zoho-embed{
+  margin-top: 12px;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.12);
+  background: rgba(255,255,255,.02);
+}
+.zoho-embed iframe{
+  display:block;
+  width:100% !important;
+  border:0 !important;
+}
+
 @media (max-width: 980px){
   .hero__inner{grid-template-columns: 1fr; }
   .trust{grid-template-columns: 1fr; }
   .grid--3{grid-template-columns: 1fr}
   .grid--2{grid-template-columns: 1fr}
   .split{grid-template-columns: 1fr}
-  .contact{grid-template-columns: 1fr}
-  .callout{flex-direction:column; align-items:flex-start}
   .header{top:41px}
   .nav__toggle{display:inline-block}
   .nav__menu{
