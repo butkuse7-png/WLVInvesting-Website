@@ -6,11 +6,10 @@
   --muted:rgba(255,255,255,.68);
   --line:rgba(255,255,255,.12);
 
-  /* Silver/white base + accent blues */
   --silver:#E5E7EB;
   --silver2:#9CA3AF;
-  --accent:#38BDF8;      /* ice blue */
-  --accent2:#0EA5E9;     /* deeper ice blue */
+  --accent:#38BDF8;
+  --accent2:#0EA5E9;
 
   --shadow: 0 18px 46px rgba(0,0,0,.44);
   --shadow2: 0 10px 24px rgba(0,0,0,.28);
@@ -31,7 +30,7 @@ body{
   background: linear-gradient(180deg, var(--bg), var(--bg2));
 }
 
-/* Premium background glow + grain */
+/* Global glow + grain */
 body::before{
   content:"";
   position:fixed;
@@ -155,49 +154,69 @@ a:hover{opacity:.92}
 .btn--full{width:100%}
 .btn--small{padding:10px 12px; border-radius: 12px; font-weight:900;}
 
-/* Sections */
-.section{padding:72px 0; position:relative;}
+/* Sections (IMPORTANT: fixes mid-section banding) */
+.section{
+  padding:72px 0;
+  position:relative;
+
+  isolation:isolate; /* prevents blend/banding weirdness */
+  overflow:hidden;   /* clips effects */
+}
+
+/* Keep content above background effects */
+.section > .container{
+  position:relative;
+  z-index:2;
+}
+
+/* Simple alt panel: no internal gradients that cause "stripe" */
+.section--panel{
+  background: rgba(255,255,255,.02);
+}
 .section--alt{
   background: rgba(255,255,255,.02);
   border-top:1px solid var(--line);
   border-bottom:1px solid var(--line);
 }
-.section--panel{
-  background:
-    radial-gradient(600px 220px at 20% 10%, rgba(56,189,248,.08), transparent 65%),
-    radial-gradient(600px 220px at 80% 10%, rgba(229,231,235,.06), transparent 65%),
-    rgba(255,255,255,.02);
-}
+
 .section__header{max-width: 76ch; margin-bottom: 22px;}
 .section__header h2{margin:0 0 10px; font-size: 32px; letter-spacing:-0.02em;}
 .section__header p{margin:0; color:var(--muted);}
 
-/* Abstract blobs behind selected sections */
-.section--blob::before{
-  content:"";
-  position:absolute;
-  width: 520px;
-  height: 520px;
-  border-radius: 999px;
-  left: -160px;
-  top: 20px;
-  background: radial-gradient(circle at 30% 30%, rgba(56,189,248,.16), transparent 60%);
-  filter: blur(12px);
-  opacity: .75;
-  pointer-events:none;
-}
+/* Visible abstract blobs (stronger but still professional) */
+.section--blob::before,
 .section--blob::after{
   content:"";
   position:absolute;
+  z-index:1;
+  pointer-events:none;
+  border-radius: 999px;
+  filter: blur(18px);
+  opacity: .85;
+}
+
+/* top-left accent blob (ice blue) */
+.section--blob::before{
   width: 520px;
   height: 520px;
-  border-radius: 999px;
-  right: -180px;
-  bottom: -120px;
-  background: radial-gradient(circle at 30% 30%, rgba(229,231,235,.10), transparent 62%);
-  filter: blur(14px);
-  opacity: .70;
-  pointer-events:none;
+  left: -220px;
+  top: -180px;
+  background: radial-gradient(circle at 35% 35%,
+    rgba(56,189,248,.38),
+    rgba(56,189,248,.12) 45%,
+    transparent 70%);
+}
+
+/* bottom-right silver blob */
+.section--blob::after{
+  width: 620px;
+  height: 620px;
+  right: -260px;
+  bottom: -240px;
+  background: radial-gradient(circle at 35% 35%,
+    rgba(229,231,235,.22),
+    rgba(229,231,235,.08) 50%,
+    transparent 72%);
 }
 
 /* Hero */
@@ -544,7 +563,7 @@ h1{
   .nav__menu{
     position:absolute;
     right:20px;
-    top:120px; /* bigger because logo is larger */
+    top:120px;
     background: rgba(10,12,20,.92);
     border:1px solid var(--line);
     border-radius: 18px;
