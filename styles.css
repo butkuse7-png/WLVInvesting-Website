@@ -25,46 +25,78 @@ body{
   line-height:1.55;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  background: transparent; /* background handled by body::before */
+
+  /* The true background is global and continuous */
+  background: transparent;
 }
 
-/* ONE continuous background across the whole website */
+/* ONE continuous background: gradient + visible shapes */
 body::before{
   content:"";
   position:fixed;
   inset:0;
   pointer-events:none;
   z-index:-2;
+
+  /* This is the “global canvas”: gradient + blobs */
   background:
-    /* base full-page gradient (continuous) */
+    /* base full-page gradient */
     linear-gradient(180deg, var(--bg), var(--bg2)),
 
-    /* global ambient glows (continuous) */
-    radial-gradient(1100px 760px at 10% 0%, rgba(229,231,235,.08), transparent 68%),
-    radial-gradient(1100px 760px at 90% 5%, rgba(56,189,248,.10), transparent 70%),
-    radial-gradient(1200px 900px at 55% 105%, rgba(14,165,233,.06), transparent 72%),
+    /* BIG ambient glows (more noticeable) */
+    radial-gradient(1200px 900px at 8% 0%,
+      rgba(229,231,235,.14),
+      transparent 70%),
+    radial-gradient(1200px 900px at 92% 6%,
+      rgba(56,189,248,.18),
+      transparent 72%),
+    radial-gradient(1400px 1000px at 55% 110%,
+      rgba(14,165,233,.12),
+      transparent 74%),
 
-    /* “random” smaller blobs */
-    radial-gradient(520px 520px at 20% 25%, rgba(56,189,248,.10), transparent 72%),
-    radial-gradient(420px 420px at 78% 28%, rgba(56,189,248,.08), transparent 70%),
-    radial-gradient(460px 460px at 62% 52%, rgba(56,189,248,.07), transparent 72%),
-    radial-gradient(520px 520px at 12% 68%, rgba(56,189,248,.07), transparent 74%),
-    radial-gradient(460px 460px at 86% 78%, rgba(56,189,248,.06), transparent 74%),
+    /* “random” ice-blue blobs (noticeable) */
+    radial-gradient(560px 560px at 18% 24%,
+      rgba(56,189,248,.18),
+      transparent 70%),
+    radial-gradient(520px 520px at 78% 22%,
+      rgba(56,189,248,.14),
+      transparent 70%),
+    radial-gradient(600px 600px at 62% 48%,
+      rgba(56,189,248,.12),
+      transparent 72%),
+    radial-gradient(560px 560px at 10% 70%,
+      rgba(56,189,248,.12),
+      transparent 74%),
+    radial-gradient(520px 520px at 88% 78%,
+      rgba(56,189,248,.10),
+      transparent 74%),
 
-    radial-gradient(520px 520px at 35% 18%, rgba(229,231,235,.06), transparent 72%),
-    radial-gradient(520px 520px at 52% 36%, rgba(229,231,235,.05), transparent 74%),
-    radial-gradient(560px 560px at 30% 88%, rgba(229,231,235,.05), transparent 74%),
-    radial-gradient(520px 520px at 70% 92%, rgba(229,231,235,.05), transparent 74%);
+    /* “random” silver blobs */
+    radial-gradient(620px 620px at 34% 16%,
+      rgba(229,231,235,.10),
+      transparent 72%),
+    radial-gradient(540px 540px at 52% 34%,
+      rgba(229,231,235,.09),
+      transparent 74%),
+    radial-gradient(640px 640px at 30% 90%,
+      rgba(229,231,235,.09),
+      transparent 74%),
+    radial-gradient(600px 600px at 72% 92%,
+      rgba(229,231,235,.08),
+      transparent 74%);
+
+  /* Helps blobs feel softer */
+  filter: saturate(1.05);
 }
 
-/* grain texture (continuous) */
+/* Grain layer (continuous) */
 body::after{
   content:"";
   position:fixed;
   inset:0;
   pointer-events:none;
   z-index:-1;
-  opacity:.09;
+  opacity:.10;
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
   background-size: 180px 180px;
@@ -82,7 +114,7 @@ a:hover{opacity:.92}
   z-index:40;
   background: rgba(10,12,20,.72);
   backdrop-filter: blur(14px);
-  border: none; /* no seams */
+  border: none; /* keep seams gone */
 }
 .header__inner{
   display:flex;
@@ -154,7 +186,7 @@ a:hover{opacity:.92}
   transform: translateY(-2px);
   filter: brightness(1.05);
   box-shadow: var(--shadow);
-  background: linear-gradient(135deg, rgba(56,189,248,.28), rgba(14,165,233,.18));
+  background: linear-gradient(135deg, rgba(56,189,248,.30), rgba(14,165,233,.20));
 }
 .btn:active{transform: translateY(-1px);}
 .btn--ghost{
@@ -170,7 +202,7 @@ a:hover{opacity:.92}
 .btn--full{width:100%}
 .btn--small{padding:10px 12px; border-radius: 12px; font-weight:900;}
 
-/* Sections */
+/* Sections (no borders / no alt backgrounds = no seams) */
 .section{
   padding:72px 0;
   position:relative;
@@ -357,7 +389,7 @@ h1{
 .zoho-embed iframe{display:block; width:100% !important; border:0 !important;}
 
 .footer{
-  border: none; /* remove seam line */
+  border: none;
   padding:28px 0;
   background: rgba(0,0,0,.18);
 }
@@ -441,7 +473,9 @@ h1{
 }
 .reveal.is-visible{
   opacity: 1;
-  transform: translateY(0);
+  transform: transl
+::contentReference[oaicite:0]{index=0}
+ateY(0);
 }
 @media (prefers-reduced-motion: reduce){
   .reveal{opacity:1; transform:none; transition:none;}
