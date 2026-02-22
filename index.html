@@ -1,280 +1,516 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>WLV Investing LLC</title>
-  <meta name="description" content="WLV Investing LLC — disciplined real estate investing focused on trust, stability, and integrity." />
+  <meta name="description" content="WLV Investing — Multifamily real estate syndications and joint ventures for passive and accredited investors." />
+  <title>WLV Investing | Multifamily Syndications & Joint Ventures</title>
 
-  <style>
-    :root{
-      --bg:#0b1220;
-      --card:#101a2e;
-      --muted:#9fb0d0;
-      --text:#eaf0ff;
-      --accent:#7dd3fc;
-      --accent2:#a7f3d0;
-      --line:rgba(255,255,255,.08);
-      --shadow:0 18px 50px rgba(0,0,0,.35);
-      --radius:18px;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
-      background: radial-gradient(1200px 600px at 20% 10%, rgba(125,211,252,.18), transparent 60%),
-                  radial-gradient(900px 500px at 80% 20%, rgba(167,243,208,.14), transparent 55%),
-                  var(--bg);
-      color:var(--text);
-      line-height:1.5;
-    }
-    a{color:inherit;text-decoration:none}
-    .wrap{max-width:1100px;margin:0 auto;padding:24px}
-    .nav{
-      position:sticky; top:0;
-      backdrop-filter: blur(10px);
-      background: rgba(11,18,32,.55);
-      border-bottom:1px solid var(--line);
-      z-index:10;
-    }
-    .nav-inner{display:flex;align-items:center;justify-content:space-between;gap:16px}
-    .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.3px}
-    .logo{
-      width:34px;height:34px;border-radius:10px;
-      background: linear-gradient(135deg, rgba(125,211,252,.9), rgba(167,243,208,.85));
-      box-shadow: 0 10px 30px rgba(125,211,252,.2);
-    }
-    .navlinks{display:flex;gap:18px;align-items:center}
-    .navlinks a{color:var(--muted);font-weight:600;font-size:14px}
-    .navlinks a:hover{color:var(--text)}
-    .btn{
-      display:inline-flex;align-items:center;justify-content:center;
-      padding:10px 14px;border-radius:12px;
-      border:1px solid var(--line);
-      background: rgba(255,255,255,.04);
-      color:var(--text);
-      font-weight:700;font-size:14px;
-    }
-    .btn.primary{
-      border:none;
-      background: linear-gradient(135deg, rgba(125,211,252,.95), rgba(167,243,208,.9));
-      color:#07101f;
-      box-shadow: 0 14px 40px rgba(125,211,252,.18);
-    }
-    .hero{padding:56px 0 22px}
-    .hero-grid{display:grid;grid-template-columns:1.25fr .75fr;gap:22px;align-items:stretch}
-    .card{
-      background: rgba(16,26,46,.72);
-      border:1px solid var(--line);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
-    }
-    .hero-left{padding:34px}
-    .kicker{
-      display:inline-flex;gap:10px;align-items:center;
-      color:var(--muted);font-weight:700;font-size:13px;
-      border:1px solid var(--line);
-      padding:8px 12px;border-radius:999px;
-      background: rgba(255,255,255,.03);
-    }
-    .dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
-    h1{margin:16px 0 10px;font-size:42px;line-height:1.1;letter-spacing:-.5px}
-    .sub{color:var(--muted);font-size:16px;max-width:60ch}
-    .cta{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
-    .mini{color:var(--muted);font-size:13px;margin-top:12px}
-    .hero-right{padding:22px;display:flex;flex-direction:column;gap:12px}
-    .stat{
-      padding:16px;border-radius:16px;border:1px solid var(--line);
-      background: rgba(255,255,255,.03);
-    }
-    .stat .label{color:var(--muted);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.12em}
-    .stat .value{font-size:18px;font-weight:800;margin-top:6px}
-    .stat .desc{color:var(--muted);font-size:13px;margin-top:6px}
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    .section{padding:22px 0}
-    .section h2{margin:0 0 10px;font-size:24px}
-    .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-    .grid2{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
-    .tile{padding:18px;border-radius:18px;border:1px solid var(--line);background: rgba(255,255,255,.03)}
-    .tile h3{margin:0 0 6px;font-size:16px}
-    .tile p{margin:0;color:var(--muted);font-size:14px}
-    .tag{
-      display:inline-block;margin-top:10px;
-      font-size:12px;font-weight:800;color:#07101f;
-      background: linear-gradient(135deg, rgba(125,211,252,.95), rgba(167,243,208,.9));
-      padding:6px 10px;border-radius:999px;
-    }
+  <!-- Optional: modern, clean font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-    .contact{padding:26px}
-    form{display:grid;gap:12px;margin-top:12px}
-    label{font-size:13px;color:var(--muted);font-weight:700}
-    input, textarea{
-      width:100%;
-      padding:12px 12px;
-      border-radius:12px;
-      border:1px solid var(--line);
-      background: rgba(0,0,0,.18);
-      color:var(--text);
-      outline:none;
-    }
-    textarea{min-height:120px;resize:vertical}
-    input:focus, textarea:focus{border-color: rgba(125,211,252,.55)}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    .fine{color:var(--muted);font-size:12px;margin-top:10px}
-    footer{padding:26px 0;color:var(--muted);font-size:13px}
-    .hr{height:1px;background:var(--line);margin:18px 0}
-
-    @media (max-width: 920px){
-      .hero-grid{grid-template-columns:1fr}
-      h1{font-size:36px}
-      .grid3{grid-template-columns:1fr}
-      .grid2{grid-template-columns:1fr}
-      .row{grid-template-columns:1fr}
-      .navlinks{display:none}
-    }
-  </style>
+  <link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
-  <div class="nav">
-    <div class="wrap nav-inner">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>WLV Investing LLC</div>
-      </div>
-      <div class="navlinks">
-        <a href="#approach">Approach</a>
-        <a href="#focus">Focus</a>
-        <a href="#contact">Contact</a>
-      </div>
-      <a class="btn primary" href="#contact">Contact us</a>
+  <!-- Top announcement bar -->
+  <div class="topbar" role="status" aria-live="polite">
+    <div class="container topbar__inner">
+      <span class="topbar__dot" aria-hidden="true"></span>
+      <span><strong>WLV Investing</strong> — Multifamily syndications & joint ventures for passive and accredited investors</span>
+      <a class="topbar__link" href="#contact">Request Investor Info</a>
     </div>
   </div>
 
-  <div class="wrap">
+  <!-- Header / Nav -->
+  <header class="header" id="top">
+    <div class="container header__inner">
+      <a class="brand" href="#top" aria-label="WLV Investing Home">
+        <span class="brand__mark" aria-hidden="true">WLV</span>
+        <span class="brand__name">WLV Investing</span>
+      </a>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Open menu" aria-expanded="false" aria-controls="navMenu">
+        <span class="nav__bar" aria-hidden="true"></span>
+        <span class="nav__bar" aria-hidden="true"></span>
+        <span class="nav__bar" aria-hidden="true"></span>
+      </button>
+
+      <nav class="nav" aria-label="Primary">
+        <ul class="nav__menu" id="navMenu">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#how">How It Works</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a class="btn btn--small" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <main>
     <section class="hero">
-      <div class="hero-grid">
-        <div class="card hero-left">
-          <div class="kicker"><span class="dot"></span> Trust • Stability • Integrity</div>
-          <h1>Disciplined real estate investing built for long-term value.</h1>
-          <p class="sub">
-            WLV Investing LLC focuses on acquiring and operating high-quality assets with a conservative,
-            data-driven approach—prioritizing durable cash flow and responsible stewardship.
+      <div class="container hero__inner">
+        <div class="hero__copy">
+          <div class="pill">
+            <span class="pill__icon" aria-hidden="true">◆</span>
+            <span>Smart multifamily investing — built for trust, clarity, and execution</span>
+          </div>
+
+          <h1>Invest in Multifamily With a Clear, Disciplined Strategy.</h1>
+          <p class="lead">
+            WLV Investing helps passive and accredited investors participate in multifamily
+            syndications and joint ventures—focused on downside protection, strong operations,
+            and transparent communication.
           </p>
-          <div class="cta">
-            <a class="btn primary" href="#contact">Get in touch</a>
-            <a class="btn" href="#approach">See our approach</a>
+
+          <div class="hero__cta">
+            <a class="btn" href="#contact">Get Investor Information</a>
+            <a class="btn btn--ghost" href="#how">See How It Works</a>
           </div>
-          <div class="mini">Based in Indiana • Focused on scalable operations and repeatable underwriting</div>
+
+          <div class="trust">
+            <div class="trust__item">
+              <div class="trust__num">01</div>
+              <div class="trust__text">
+                <strong>Underwriting</strong><br/>Conservative assumptions & stress-testing
+              </div>
+            </div>
+            <div class="trust__item">
+              <div class="trust__num">02</div>
+              <div class="trust__text">
+                <strong>Operations</strong><br/>Focus on NOI growth & risk management
+              </div>
+            </div>
+            <div class="trust__item">
+              <div class="trust__num">03</div>
+              <div class="trust__text">
+                <strong>Communication</strong><br/>Clear updates and investor-first reporting
+              </div>
+            </div>
+          </div>
         </div>
 
-        <div class="card hero-right">
-          <div class="stat">
-            <div class="label">Investment philosophy</div>
-            <div class="value">Risk-managed, operator-first</div>
-            <div class="desc">We emphasize fundamentals: yield, downside protection, and execution.</div>
+        <div class="hero__card" aria-label="Highlights">
+          <div class="card card--glass">
+            <h2 class="card__title">What We Do</h2>
+            <ul class="checklist">
+              <li>Sponsor & operate multifamily investments</li>
+              <li>Structure syndications for passive investors</li>
+              <li>Joint ventures for aligned partners</li>
+              <li>Deliver simple, consistent reporting</li>
+            </ul>
+
+            <div class="card__divider"></div>
+
+            <h3 class="card__subtitle">Ideal For</h3>
+            <div class="tags">
+              <span class="tag">Passive Investors</span>
+              <span class="tag">Accredited Investors</span>
+              <span class="tag">Long-Term Wealth</span>
+              <span class="tag">Real Assets</span>
+            </div>
+
+            <div class="card__divider"></div>
+
+            <a class="btn btn--full" href="#contact">Request a Call</a>
+            <p class="microcopy">
+              By submitting, you agree to be contacted by WLV Investing. No spam.
+            </p>
           </div>
-          <div class="stat">
-            <div class="label">What we look for</div>
-            <div class="value">Strong demand &amp; clean economics</div>
-            <div class="desc">Neighborhood dynamics, comps, rent support, and capex realism.</div>
+        </div>
+      </div>
+
+      <div class="hero__bg" aria-hidden="true"></div>
+    </section>
+
+    <!-- About -->
+    <section class="section" id="about">
+      <div class="container">
+        <div class="section__header">
+          <h2>About WLV Investing</h2>
+          <p>
+            Our mission is to help investors access institutional-style multifamily opportunities with
+            a process that prioritizes discipline, transparency, and alignment.
+          </p>
+        </div>
+
+        <div class="grid grid--3">
+          <div class="card">
+            <h3>Mission</h3>
+            <p>
+              Create durable, risk-aware investment opportunities in multifamily real estate that
+              support long-term wealth building for our partners.
+            </p>
           </div>
-          <div class="stat">
-            <div class="label">Partnership</div>
-            <div class="value">Transparent communication</div>
-            <div class="desc">Clear reporting and alignment with stakeholders.</div>
+          <div class="card">
+            <h3>Vision</h3>
+            <p>
+              Be a trusted investment partner known for clear communication, strong operations,
+              and investor-focused execution.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Values</h3>
+            <p>
+              Discipline in underwriting, integrity in reporting, and alignment in every deal
+              structure—so investors understand exactly what they own and why.
+            </p>
+          </div>
+        </div>
+
+        <div class="split">
+          <div class="split__left">
+            <h3>Our Approach</h3>
+            <p>
+              Multifamily can offer stable demand, professional management, and multiple ways to create
+              value—from operational improvements to strategic renovations. We focus on deals where
+              the business plan is understandable, measurable, and resilient.
+            </p>
+            <ul class="bullets">
+              <li>Conservative underwriting with downside scenarios</li>
+              <li>Operational playbooks to grow NOI sustainably</li>
+              <li>Clear investor updates and consistent reporting</li>
+            </ul>
+          </div>
+
+          <div class="split__right">
+            <div class="statcard">
+              <div class="stat">
+                <div class="stat__label">Primary Focus</div>
+                <div class="stat__value">Multifamily</div>
+              </div>
+              <div class="stat">
+                <div class="stat__label">Structures</div>
+                <div class="stat__value">Syndications & JVs</div>
+              </div>
+              <div class="stat">
+                <div class="stat__label">Investor Experience</div>
+                <div class="stat__value">Simple & Transparent</div>
+              </div>
+              <div class="stat stat--note">
+                <div class="stat__label">Note</div>
+                <div class="stat__value stat__value--small">
+                  Past performance is not a guarantee of future results. All investing involves risk.
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="section" id="approach">
-      <h2>Our approach</h2>
-      <div class="grid3">
-        <div class="tile">
-          <h3>1) Underwrite conservatively</h3>
-          <p>Stress test assumptions (rent, vacancy, capex) and prioritize margin of safety.</p>
-          <span class="tag">Data-driven</span>
+    <!-- Services -->
+    <section class="section section--alt" id="services">
+      <div class="container">
+        <div class="section__header">
+          <h2>Services</h2>
+          <p>
+            WLV Investing offers structured ways to participate in multifamily opportunities—tailored
+            for passive investors and partners seeking aligned joint ventures.
+          </p>
         </div>
-        <div class="tile">
-          <h3>2) Execute operationally</h3>
-          <p>Focus on process, vendors, and asset management discipline to protect returns.</p>
-          <span class="tag">Operator mindset</span>
+
+        <div class="grid grid--2">
+          <div class="card card--lift">
+            <h3>Syndications (Passive Investing)</h3>
+            <p>
+              Participate as a limited partner in multifamily acquisitions and value-add projects.
+              We handle sourcing, underwriting, financing, operations, and reporting.
+            </p>
+            <ul class="bullets">
+              <li>Passive participation with professional operations</li>
+              <li>Deal-specific reporting and ongoing communication</li>
+              <li>Aligned incentives through structured deal terms</li>
+            </ul>
+            <a class="link" href="#contact">Request investor info →</a>
+          </div>
+
+          <div class="card card--lift">
+            <h3>Joint Ventures (JV Partnerships)</h3>
+            <p>
+              For partners looking to collaborate on acquisitions and operations with clear roles,
+              alignment, and a defined business plan.
+            </p>
+            <ul class="bullets">
+              <li>Partner alignment on strategy, capital, and execution</li>
+              <li>Clear responsibilities and transparent governance</li>
+              <li>Focused plans for asset performance improvement</li>
+            </ul>
+            <a class="link" href="#contact">Discuss a JV →</a>
+          </div>
         </div>
-        <div class="tile">
-          <h3>3) Grow responsibly</h3>
-          <p>Scale only where we can maintain performance, transparency, and control.</p>
-          <span class="tag">Long-term</span>
+
+        <div class="callout">
+          <div>
+            <h3>Want to learn what a good deal looks like?</h3>
+            <p>
+              We can share a simple underwriting breakdown and what we look for in a multifamily investment.
+            </p>
+          </div>
+          <a class="btn" href="#contact">Send Me the Breakdown</a>
         </div>
       </div>
     </section>
 
-    <section class="section" id="focus">
-      <h2>Investment focus</h2>
-      <div class="grid2">
-        <div class="tile">
-          <h3>Multifamily</h3>
-          <p>Primary focus. Assets where operations and capital planning can drive durable performance.</p>
+    <!-- How it works -->
+    <section class="section" id="how">
+      <div class="container">
+        <div class="section__header">
+          <h2>How It Works</h2>
+          <p>
+            A straightforward process designed to reduce confusion and increase confidence—from first contact
+            to ongoing reporting.
+          </p>
         </div>
-        <div class="tile">
-          <h3>Residential (selective)</h3>
-          <p>Opportunistic acquisitions that meet underwriting standards and fit our operating model.</p>
+
+        <ol class="steps">
+          <li class="step">
+            <div class="step__num">1</div>
+            <div class="step__body">
+              <h3>Connect</h3>
+              <p>Submit your name and email. We’ll follow up with investor materials and next steps.</p>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step__num">2</div>
+            <div class="step__body">
+              <h3>Review Opportunities</h3>
+              <p>When a deal is available, you’ll receive a clear overview: strategy, risks, timeline, and terms.</p>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step__num">3</div>
+            <div class="step__body">
+              <h3>Invest (If It Fits)</h3>
+              <p>Choose the opportunity that matches your goals. We keep the process simple and documented.</p>
+            </div>
+          </li>
+          <li class="step">
+            <div class="step__num">4</div>
+            <div class="step__body">
+              <h3>Operate & Report</h3>
+              <p>We execute the business plan and provide consistent updates so you’re never guessing.</p>
+            </div>
+          </li>
+        </ol>
+
+        <div class="grid grid--3">
+          <div class="card">
+            <h3>Advantages of Multifamily</h3>
+            <p>Typically strong demand, diversified tenant base, and professional management opportunities.</p>
+          </div>
+          <div class="card">
+            <h3>Alignment</h3>
+            <p>Structured incentives and transparent terms designed to keep everyone pulling the same direction.</p>
+          </div>
+          <div class="card">
+            <h3>Clarity</h3>
+            <p>Plain-English communication so investors understand the plan, progress, and performance.</p>
+          </div>
         </div>
-      </div>
-      <div class="hr"></div>
-      <div class="tile">
-        <h3>Have a deal to share?</h3>
-        <p>Send address, asking price, rent roll (if applicable), and any capex notes. We’ll respond quickly.</p>
       </div>
     </section>
 
+    <!-- FAQ -->
+    <section class="section section--alt" id="faq">
+      <div class="container">
+        <div class="section__header">
+          <h2>FAQ</h2>
+          <p>Common questions about multifamily investing, syndications, and what to expect with WLV Investing.</p>
+        </div>
+
+        <div class="faq" role="region" aria-label="Frequently Asked Questions">
+          <details class="faq__item">
+            <summary>What is a multifamily syndication?</summary>
+            <div class="faq__content">
+              <p>
+                A syndication is a structure where multiple investors pool capital to acquire a property.
+                Typically, a sponsor team sources the deal, arranges financing, manages operations, and provides reporting.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>What’s the difference between a syndication and a joint venture?</summary>
+            <div class="faq__content">
+              <p>
+                In a syndication, passive investors typically participate as limited partners. In a joint venture,
+                partners often share more direct involvement, roles, and decision-making—based on the agreement.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>Do I need to be accredited to invest?</summary>
+            <div class="faq__content">
+              <p>
+                It depends on the offering structure. Some opportunities may be open to non-accredited investors,
+                while others may be limited to accredited investors only.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>How do you manage risk?</summary>
+            <div class="faq__content">
+              <p>
+                We focus on conservative underwriting, stress-testing scenarios, and operational execution that prioritizes
+                durable cash flow and downside protection. Every investment carries risk, and we aim to make risks clear.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>How often will I receive updates?</summary>
+            <div class="faq__content">
+              <p>
+                Update frequency can vary by deal, but our goal is consistent, predictable reporting with clear performance
+                metrics and progress on the business plan.
+              </p>
+            </div>
+          </details>
+
+          <details class="faq__item">
+            <summary>How do I get notified about future deals?</summary>
+            <div class="faq__content">
+              <p>
+                Submit the contact form below. We’ll follow up and add you to our investor communications (you can opt out anytime).
+              </p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
     <section class="section" id="contact">
-      <div class="card contact">
-        <h2>Contact</h2>
-        <p class="sub">Send a message and we’ll get back to you.</p>
+      <div class="container">
+        <div class="section__header">
+          <h2>Contact</h2>
+          <p>Send your name and email. We’ll follow up with investor information and next steps.</p>
+        </div>
 
-        <!-- CONTACT FORM (Option A: Formspree) -->
-        <!-- Replace ACTION_URL below with your Formspree endpoint -->
-        <form action="ACTION_URL" method="POST">
-          <div class="row">
-            <div>
-              <label for="name">Name</label>
-              <input id="name" name="name" type="text" placeholder="Your name" required />
+        <div class="contact">
+          <div class="contact__left">
+            <div class="card">
+              <h3>Request Investor Info</h3>
+              <p class="muted">Fill out the form and we’ll reach out shortly.</p>
+
+              <!--
+                FORM OPTIONS:
+
+                Option A (default): POST to a webhook (Zapier/Make/etc.) that pushes to Zoho CRM + sends email notification.
+                - Replace FORM_ACTION with your webhook URL.
+                - Keep method="POST".
+                - This is the easiest "link to CRM" without server code.
+
+                Option B: mailto fallback (no CRM, just opens email client).
+                - In script.js, set USE_MAILTO_FALLBACK = true
+              -->
+              <form id="leadForm" class="form" method="POST" action="FORM_ACTION">
+                <div class="form__row">
+                  <label for="name">Name</label>
+                  <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required minlength="2" />
+                </div>
+
+                <div class="form__row">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required />
+                </div>
+
+                <div class="form__row">
+                  <label for="interest">I’m interested in</label>
+                  <select id="interest" name="interest">
+                    <option value="Syndications">Syndications (Passive Investing)</option>
+                    <option value="Joint Ventures">Joint Ventures (JV Partnerships)</option>
+                    <option value="Learning">Learning More / Educational Materials</option>
+                  </select>
+                </div>
+
+                <div class="form__row">
+                  <label class="checkbox">
+                    <input id="consent" name="consent" type="checkbox" required />
+                    <span>I agree to be contacted by WLV Investing.</span>
+                  </label>
+                </div>
+
+                <!-- hidden fields helpful for CRMs -->
+                <input type="hidden" name="source" value="wlvinvesting.com" />
+                <input type="hidden" name="page" value="home" />
+
+                <button class="btn btn--full" type="submit" id="submitBtn">Submit</button>
+
+                <p class="microcopy">
+                  We respect your privacy. No spam. Unsubscribe anytime.
+                </p>
+
+                <div id="formStatus" class="form__status" role="status" aria-live="polite"></div>
+              </form>
             </div>
-            <div>
-              <label for="email">Email</label>
-              <input id="email" name="email" type="email" placeholder="you@email.com" required />
+          </div>
+
+          <div class="contact__right">
+            <div class="card card--glass">
+              <h3>Next Steps</h3>
+              <ul class="bullets">
+                <li>We’ll confirm your request and share investor information.</li>
+                <li>You can ask questions and learn how syndications/JVs work.</li>
+                <li>When an opportunity fits, we’ll share clear details and timelines.</li>
+              </ul>
+
+              <div class="card__divider"></div>
+
+              <h4 class="muted">Optional Contact Info</h4>
+              <p class="muted">
+                Add your email/phone here if you want them displayed publicly:
+              </p>
+              <p class="muted">
+                <strong>Email:</strong> info@wlvinvesting.com<br/>
+                <strong>Location:</strong> Midwest, USA
+              </p>
+
+              <div class="card__divider"></div>
+
+              <p class="microcopy">
+                This website is for informational purposes only and does not constitute an offer to sell or a solicitation
+                to buy securities. Any offering is made only via official offering documents.
+              </p>
             </div>
           </div>
-
-          <div>
-            <label for="subject">Subject</label>
-            <input id="subject" name="subject" type="text" placeholder="Deal / partnership / general inquiry" />
-          </div>
-
-          <div>
-            <label for="message">Message</label>
-            <textarea id="message" name="message" placeholder="Write your message..." required></textarea>
-          </div>
-
-          <!-- Optional: simple honeypot to reduce spam -->
-          <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off" />
-
-          <button class="btn primary" type="submit">Send message</button>
-          <div class="fine">
-            Prefer email? Contact: <strong>wlvInvestingLLC@gmail.com</strong>
-          </div>
-        </form>
+        </div>
       </div>
     </section>
 
-    <footer>
-      © <span id="y"></span> WLV Investing LLC. All rights reserved.
-    </footer>
-  </div>
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container footer__inner">
+        <div class="footer__brand">
+          <span class="brand__mark" aria-hidden="true">WLV</span>
+          <div>
+            <strong>WLV Investing</strong>
+            <div class="muted">Multifamily Syndications & Joint Ventures</div>
+          </div>
+        </div>
 
-  <script>
-    document.getElementById("y").textContent = new Date().getFullYear();
-  </script>
+        <div class="footer__links">
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#how">How It Works</a>
+          <a href="#faq">FAQ</a>
+          <a href="#contact">Contact</a>
+        </div>
+
+        <div class="footer__copy muted">
+          © <span id="year"></span> WLV Investing. All rights reserved.
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <script src="script.js"></script>
 </body>
 </html>
