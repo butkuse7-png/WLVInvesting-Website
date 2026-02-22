@@ -59,8 +59,8 @@ a:hover{opacity:.92}
   min-width: 260px;
 }
 .brand__logo{
-  width: 44px;          /* smaller logo */
-  height: 44px;
+  width: 60px;          /* smaller logo */
+  height: 60px;
   border-radius: 14px;
   object-fit: contain;
   background: rgba(255,255,255,.04);
