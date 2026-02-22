@@ -6,7 +6,6 @@
   --muted:rgba(255,255,255,.68);
 
   --silver:#E5E7EB;
-  --silver2:#9CA3AF;
   --accent:#38BDF8;
   --accent2:#0EA5E9;
 
@@ -26,42 +25,39 @@ body{
   line-height:1.55;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-  background: linear-gradient(180deg, var(--bg), var(--bg2));
+  background: transparent; /* background handled by body::before */
 }
 
-/* GLOBAL BACKGROUND: lots of soft shapes, no seams */
+/* ONE continuous background across the whole website */
 body::before{
   content:"";
   position:fixed;
-  inset:-200px;              /* extra so edges never appear */
+  inset:0;
   pointer-events:none;
   z-index:-2;
-  filter: blur(0px);
   background:
-    /* big foundational glows */
+    /* base full-page gradient (continuous) */
+    linear-gradient(180deg, var(--bg), var(--bg2)),
+
+    /* global ambient glows (continuous) */
     radial-gradient(1100px 760px at 10% 0%, rgba(229,231,235,.08), transparent 68%),
     radial-gradient(1100px 760px at 90% 5%, rgba(56,189,248,.10), transparent 70%),
     radial-gradient(1200px 900px at 55% 105%, rgba(14,165,233,.06), transparent 72%),
 
-    /* “random” smaller ice-blue blobs */
+    /* “random” smaller blobs */
     radial-gradient(520px 520px at 20% 25%, rgba(56,189,248,.10), transparent 72%),
     radial-gradient(420px 420px at 78% 28%, rgba(56,189,248,.08), transparent 70%),
     radial-gradient(460px 460px at 62% 52%, rgba(56,189,248,.07), transparent 72%),
     radial-gradient(520px 520px at 12% 68%, rgba(56,189,248,.07), transparent 74%),
     radial-gradient(460px 460px at 86% 78%, rgba(56,189,248,.06), transparent 74%),
 
-    /* “random” silver blobs */
     radial-gradient(520px 520px at 35% 18%, rgba(229,231,235,.06), transparent 72%),
     radial-gradient(520px 520px at 52% 36%, rgba(229,231,235,.05), transparent 74%),
     radial-gradient(560px 560px at 30% 88%, rgba(229,231,235,.05), transparent 74%),
-    radial-gradient(520px 520px at 70% 92%, rgba(229,231,235,.05), transparent 74%),
-
-    /* extra depth */
-    radial-gradient(700px 520px at 50% 12%, rgba(0,0,0,.35), transparent 70%),
-    radial-gradient(900px 620px at 50% 62%, rgba(0,0,0,.28), transparent 72%);
+    radial-gradient(520px 520px at 70% 92%, rgba(229,231,235,.05), transparent 74%);
 }
 
-/* Grain texture for premium look */
+/* grain texture (continuous) */
 body::after{
   content:"";
   position:fixed;
@@ -86,7 +82,7 @@ a:hover{opacity:.92}
   z-index:40;
   background: rgba(10,12,20,.72);
   backdrop-filter: blur(14px);
-  border-bottom:none;
+  border: none; /* no seams */
 }
 .header__inner{
   display:flex;
@@ -178,27 +174,16 @@ a:hover{opacity:.92}
 .section{
   padding:72px 0;
   position:relative;
+  background: transparent;
+  border: none;
 }
 .section__header{max-width: 76ch; margin-bottom: 22px;}
 .section__header h2{margin:0 0 10px; font-size: 32px; letter-spacing:-0.02em;}
 .section__header p{margin:0; color:rgba(255,255,255,.68);}
 
 /* Hero */
-.hero{position:relative; padding:92px 0 32px; overflow:hidden;}
+.hero{position:relative; padding:92px 0 32px;}
 .hero__inner{display:grid; grid-template-columns: 1.15fr .85fr; gap:28px; align-items:start;}
-.section--glow::after{
-  content:"";
-  position:absolute;
-  inset:-220px -220px auto -220px;
-  height:560px;
-  background:
-    radial-gradient(420px 300px at 25% 65%, rgba(56,189,248,.14), transparent 62%),
-    radial-gradient(380px 260px at 70% 35%, rgba(229,231,235,.08), transparent 62%),
-    radial-gradient(520px 320px at 55% 50%, rgba(14,165,233,.07), transparent 65%);
-  filter: blur(18px);
-  pointer-events:none;
-  opacity:.9;
-}
 
 .pill{
   display:inline-flex; align-items:center; gap:10px;
@@ -296,7 +281,6 @@ h1{
 .link{color: rgba(56,189,248,.95); font-weight:900}
 .link:hover{opacity:.92}
 
-/* Callout */
 .callout{
   margin-top:18px;
   border-radius: var(--radius2);
@@ -308,23 +292,14 @@ h1{
   justify-content:space-between;
   gap:14px;
 }
-.callout h3{margin:0 0 6px}
-.callout p{margin:0; color:rgba(255,255,255,.68)}
 
-/* Statcard */
 .statcard{
   border:1px solid rgba(255,255,255,.12);
   background: rgba(255,255,255,.03);
   border-radius: var(--radius2);
   padding:18px;
 }
-.stat{padding:12px 0; border-bottom:1px solid rgba(255,255,255,.12);}
-.stat:last-child{border-bottom:none}
-.stat__label{color:rgba(255,255,255,.60); font-size:12px; letter-spacing:.08em; text-transform:uppercase}
-.stat__value{font-weight:900; font-size:18px; margin-top:6px}
-.stat__value--small{font-weight:600; font-size:13px; color:rgba(255,255,255,.68)}
 
-/* FAQ */
 .faq__item{
   border:1px solid rgba(255,255,255,.12);
   border-radius: var(--radius2);
@@ -334,9 +309,7 @@ h1{
 }
 .faq__item summary{cursor:pointer; padding:14px 0; font-weight:900;}
 .faq__content{padding:0 0 14px; color:rgba(255,255,255,.68);}
-.faq__item[open]{background: rgba(255,255,255,.05)}
 
-/* Process */
 .process{position: relative; margin-top: 12px;}
 .process__rail{
   position:absolute;
@@ -356,8 +329,6 @@ h1{
   box-shadow: var(--shadow2);
 }
 
-/* Projects */
-.project__top{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px;}
 .badge{
   display:inline-flex; align-items:center;
   padding:6px 10px; border-radius:999px;
@@ -366,6 +337,7 @@ h1{
   color: rgba(255,255,255,.72);
   font-size:12px; font-weight:900;
 }
+.project__top{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px;}
 .project__type{color: rgba(255,255,255,.60); font-size:12px; letter-spacing:.08em; text-transform: uppercase;}
 
 .criteria{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;}
@@ -373,7 +345,6 @@ h1{
 .criteria__v{font-weight:900; margin-top:6px;}
 .criteria__s{color: rgba(255,255,255,.68); margin-top:8px; font-size:13px;}
 
-/* Contact + Zoho */
 .contact-full{padding: 22px;}
 .zoho-embed{
   margin-top: 12px;
@@ -385,9 +356,8 @@ h1{
 }
 .zoho-embed iframe{display:block; width:100% !important; border:0 !important;}
 
-/* Footer */
 .footer{
-  border-top:1px solid rgba(255,255,255,.12);
+  border: none; /* remove seam line */
   padding:28px 0;
   background: rgba(0,0,0,.18);
 }
@@ -478,7 +448,6 @@ h1{
   .btn, .card--lift, .trust__item, .backtotop{transition:none;}
 }
 
-/* Responsive */
 @media (max-width: 980px){
   .hero__inner{grid-template-columns: 1fr; }
   .trust{grid-template-columns: 1fr; }
