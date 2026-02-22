@@ -61,7 +61,7 @@ a:hover{opacity:.92}
   display:inline-block;
 }
 .topbar__link{
-  font-weight:700;
+  font-weight:800;
   padding:6px 10px;
   border:1px solid var(--line);
   border-radius:999px;
@@ -93,19 +93,20 @@ a:hover{opacity:.92}
 
 .brand{
   display:flex; align-items:center; gap:12px;
-  min-width: 240px;
+  min-width: 260px;
 }
-.brand__mark{
-  width:42px; height:42px;
-  border-radius:14px;
-  display:grid; place-items:center;
-  font-weight:900;
-  letter-spacing:.10em;
-  background: linear-gradient(135deg, rgba(124,58,237,.85), rgba(34,211,238,.75));
+.brand__logo{
+  width: 46px;
+  height: 46px;
+  border-radius: 14px;
+  object-fit: contain;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.12);
+  padding: 6px;
   box-shadow: var(--shadow2);
 }
 .brand__namewrap{display:flex; flex-direction:column; line-height:1.1;}
-.brand__name{font-weight:800; letter-spacing:-.01em}
+.brand__name{font-weight:900; letter-spacing:-.01em}
 .brand__sub{font-size:12px; color:rgba(255,255,255,.60); margin-top:4px}
 
 .nav__menu{
@@ -142,7 +143,7 @@ a:hover{opacity:.92}
   background: linear-gradient(135deg, rgba(124,58,237,.95), rgba(34,211,238,.85));
   border: 1px solid rgba(255,255,255,.10);
   box-shadow: var(--shadow2);
-  font-weight:800;
+  font-weight:900;
   font-size:14px;
   transition: transform .18s ease, box-shadow .18s ease, filter .18s ease, background .18s ease;
   will-change: transform;
@@ -165,7 +166,7 @@ a:hover{opacity:.92}
   box-shadow: var(--shadow2);
 }
 .btn--full{width:100%}
-.btn--small{padding:10px 12px; border-radius: 12px; font-weight:800;}
+.btn--small{padding:10px 12px; border-radius: 12px; font-weight:900;}
 
 /* Hero */
 .hero{
@@ -255,7 +256,6 @@ h1{
   background: rgba(255,255,255,.04);
   border-radius: var(--radius2);
   padding:20px;
-  box-shadow: 0 0 0 rgba(0,0,0,0);
 }
 .card--glass{
   background: rgba(255,255,255,.06);
@@ -297,36 +297,9 @@ h1{
 
 .stack{display:grid; gap:10px}
 
-/* Lists, tags, misc */
-.checklist{list-style:none; padding:0; margin:0}
-.checklist li{
-  padding-left:26px;
-  margin:10px 0;
-  position:relative;
-  color:var(--muted);
-}
-.checklist li::before{
-  content:"✓";
-  position:absolute;
-  left:0; top:0;
-  color: rgba(34,211,238,.95);
-  font-weight:900;
-}
-
-.tags{display:flex; flex-wrap:wrap; gap:8px}
-.tag{
-  padding:8px 10px;
-  border-radius:999px;
-  border:1px solid var(--line);
-  background: rgba(255,255,255,.04);
-  font-size:12px;
-  color:var(--muted);
-}
-
-.microcopy{font-size:12px; color:rgba(255,255,255,.55); margin-top:12px}
-.muted{color:var(--muted)}
-.link{color: rgba(34,211,238,.95); font-weight:800}
-.link:hover{opacity:.92}
+/* Lists */
+.bullets{margin:12px 0 0; color:var(--muted); padding-left:18px;}
+.bullets li{margin:8px 0}
 
 /* Sections + grids */
 .section{padding:72px 0}
@@ -351,8 +324,10 @@ h1{
   align-items:start;
 }
 
-.bullets{margin:12px 0 0; color:var(--muted); padding-left:18px;}
-.bullets li{margin:8px 0}
+.microcopy{font-size:12px; color:rgba(255,255,255,.55); margin-top:12px}
+.muted{color:var(--muted)}
+.link{color: rgba(34,211,238,.95); font-weight:900}
+.link:hover{opacity:.92}
 
 /* Callout */
 .callout{
@@ -394,16 +369,13 @@ h1{
 .faq__item summary{
   cursor:pointer;
   padding:14px 0;
-  font-weight:800;
+  font-weight:900;
 }
 .faq__content{padding:0 0 14px; color:var(--muted);}
 .faq__item[open]{background: rgba(255,255,255,.05)}
 
-/* Process (stronger) */
-.process{
-  position: relative;
-  margin-top: 12px;
-}
+/* Process */
+.process{position: relative; margin-top: 12px;}
 .process__rail{
   position:absolute;
   left: 18px;
@@ -413,20 +385,10 @@ h1{
   background: linear-gradient(180deg, rgba(124,58,237,.55), rgba(34,211,238,.45));
   opacity: .55;
 }
-.process__steps{
-  display:grid;
-  gap: 14px;
-}
-.pstep{
-  display:grid;
-  grid-template-columns: 44px 1fr;
-  gap: 12px;
-  align-items:start;
-}
+.process__steps{display:grid; gap: 14px;}
+.pstep{display:grid; grid-template-columns: 44px 1fr; gap: 12px; align-items:start;}
 .pstep__dot{
-  width: 14px;
-  height: 14px;
-  border-radius: 999px;
+  width: 14px; height: 14px; border-radius: 999px;
   margin: 14px 0 0 12px;
   background: linear-gradient(135deg, rgba(124,58,237,.95), rgba(34,211,238,.85));
   box-shadow: var(--shadow2);
@@ -456,7 +418,7 @@ h1{
   background: rgba(255,255,255,.05);
   color: rgba(255,255,255,.72);
   font-size:12px;
-  font-weight:800;
+  font-weight:900;
 }
 .project__type{
   color: rgba(255,255,255,.60);
@@ -468,10 +430,8 @@ h1{
 .project__meta{margin:0 0 10px; color: rgba(255,255,255,.65); font-size:13px;}
 .project__desc{margin:0; color: var(--muted);}
 
-/* Contact full-width + Zoho */
-.contact-full{
-  padding: 22px;
-}
+/* Contact + Zoho */
+.contact-full{padding: 22px;}
 .contact-full__head{
   display:flex;
   align-items:flex-start;
@@ -490,7 +450,6 @@ h1{
   background: rgba(255,255,255,.04);
   color: rgba(255,255,255,.72);
 }
-
 .zoho-embed{
   margin-top: 12px;
   border-radius: 18px;
@@ -518,11 +477,20 @@ h1{
   flex-wrap:wrap;
 }
 .footer__brand{display:flex; align-items:center; gap:12px}
+.footer__logo{
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  object-fit: contain;
+  background: rgba(255,255,255,.04);
+  border: 1px solid rgba(255,255,255,.12);
+  padding: 5px;
+}
 .footer__links{display:flex; gap:14px; flex-wrap:wrap}
 .footer__links a{color:var(--muted); font-size:14px}
 .footer__links a:hover{color:var(--text)}
 
-/* Subtle motion (scroll reveal) */
+/* Subtle motion */
 .reveal{
   opacity: 0;
   transform: translateY(10px);
@@ -532,8 +500,6 @@ h1{
   opacity: 1;
   transform: translateY(0);
 }
-
-/* Reduce motion accessibility */
 @media (prefers-reduced-motion: reduce){
   .reveal{opacity:1; transform:none; transition:none;}
   .btn, .card--lift, .trust__item, .topbar__link{transition:none;}
@@ -549,6 +515,7 @@ h1{
   .process__rail{display:none;}
   .pstep{grid-template-columns: 1fr}
   .pstep__dot{display:none;}
+  .contact-full__head{flex-direction:column;}
 
   .nav__toggle{display:inline-block}
   .nav__menu{
@@ -565,5 +532,4 @@ h1{
   }
   .nav__menu.show{display:flex}
   .nav__menu a{padding:10px 10px}
-  .contact-full__head{flex-direction:column;}
 }
