@@ -13,6 +13,22 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css" />
+
+  <!-- Tiny style add-on to make Zoho embed look seamless -->
+  <style>
+    .zoho-embed {
+      width: 100%;
+      border: 1px solid var(--line, rgba(255,255,255,.12));
+      border-radius: 16px;
+      overflow: hidden;
+      background: rgba(255,255,255,.02);
+    }
+    .zoho-embed iframe{
+      width: 100% !important;
+      border: 0 !important;
+      display: block;
+    }
+  </style>
 </head>
 <body>
   <!-- Top announcement bar -->
@@ -400,56 +416,19 @@
               <h3>Request Investor Info</h3>
               <p class="muted">Fill out the form and we’ll reach out shortly.</p>
 
-              <!--
-                FORM OPTIONS:
+              <!-- Zoho Form Embed (replaces the old HTML form) -->
+              <div class="zoho-embed">
+                <iframe
+                  aria-label="Contact Us"
+                  frameborder="0"
+                  style="height:860px;width:100%;border:none;"
+                  src="https://forms.zohopublic.com/adminwlvinv1/form/ContactUs/formperma/1prBmvgOcUUes6PQ2rUyDjakC-Nfwnr-19i2W3uA2ac">
+                </iframe>
+              </div>
 
-                Option A (default): POST to a webhook (Zapier/Make/etc.) that pushes to Zoho CRM + sends email notification.
-                - Replace FORM_ACTION with your webhook URL.
-                - Keep method="POST".
-                - This is the easiest "link to CRM" without server code.
-
-                Option B: mailto fallback (no CRM, just opens email client).
-                - In script.js, set USE_MAILTO_FALLBACK = true
-              -->
-              <form id="leadForm" class="form" method="POST" action="FORM_ACTION">
-                <div class="form__row">
-                  <label for="name">Name</label>
-                  <input id="name" name="name" type="text" autocomplete="name" placeholder="Your name" required minlength="2" />
-                </div>
-
-                <div class="form__row">
-                  <label for="email">Email</label>
-                  <input id="email" name="email" type="email" autocomplete="email" placeholder="you@email.com" required />
-                </div>
-
-                <div class="form__row">
-                  <label for="interest">I’m interested in</label>
-                  <select id="interest" name="interest">
-                    <option value="Syndications">Syndications (Passive Investing)</option>
-                    <option value="Joint Ventures">Joint Ventures (JV Partnerships)</option>
-                    <option value="Learning">Learning More / Educational Materials</option>
-                  </select>
-                </div>
-
-                <div class="form__row">
-                  <label class="checkbox">
-                    <input id="consent" name="consent" type="checkbox" required />
-                    <span>I agree to be contacted by WLV Investing.</span>
-                  </label>
-                </div>
-
-                <!-- hidden fields helpful for CRMs -->
-                <input type="hidden" name="source" value="wlvinvesting.com" />
-                <input type="hidden" name="page" value="home" />
-
-                <button class="btn btn--full" type="submit" id="submitBtn">Submit</button>
-
-                <p class="microcopy">
-                  We respect your privacy. No spam. Unsubscribe anytime.
-                </p>
-
-                <div id="formStatus" class="form__status" role="status" aria-live="polite"></div>
-              </form>
+              <p class="microcopy" style="margin-top:12px;">
+                We respect your privacy. No spam. Unsubscribe anytime.
+              </p>
             </div>
           </div>
 
