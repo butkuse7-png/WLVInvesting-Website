@@ -1,5 +1,4 @@
 (() => {
-  // Mobile menu toggle
   const navToggle = document.getElementById("navToggle");
   const navMenu = document.getElementById("navMenu");
 
@@ -10,7 +9,6 @@
       navToggle.setAttribute("aria-label", isOpen ? "Close menu" : "Open menu");
     });
 
-    // Close menu when clicking a link
     navMenu.querySelectorAll("a").forEach(a => {
       a.addEventListener("click", () => {
         navMenu.classList.remove("show");
@@ -20,11 +18,9 @@
     });
   }
 
-  // Footer year
   const yearEl = document.getElementById("year");
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  // Subtle reveal on scroll
   const els = Array.from(document.querySelectorAll(".reveal"));
   if (!("IntersectionObserver" in window) || els.length === 0) {
     els.forEach(el => el.classList.add("is-visible"));
@@ -37,11 +33,9 @@
         }
       }
     }, { threshold: 0.12 });
-
     els.forEach(el => io.observe(el));
   }
 
-  // Back to top
   const backToTop = document.getElementById("backToTop");
   if (backToTop) {
     backToTop.addEventListener("click", () => {
@@ -49,13 +43,11 @@
     });
   }
 
-  // Mobile sticky CTA (hide when near contact section)
   const mobileCta = document.getElementById("mobileCta");
   const contact = document.getElementById("contact");
 
   function onScroll() {
     const y = window.scrollY || 0;
-
     if (backToTop) backToTop.style.display = y > 700 ? "block" : "none";
 
     if (!mobileCta || !contact) return;
