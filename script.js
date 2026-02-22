@@ -57,17 +57,17 @@
 
     // show back-to-top after some scroll
     if (backToTop) {
-      backToTop.style.display = y > 600 ? "block" : "none";
+      backToTop.style.display = y > 700 ? "block" : "none";
     }
 
     if (!mobileCta || !contact) return;
 
-    // if we're close to the contact section, hide the CTA (so it doesn't feel redundant)
+    // hide CTA when approaching contact
     const rect = contact.getBoundingClientRect();
-    const isContactVisible = rect.top < window.innerHeight * 0.65; // approaching contact
-    mobileCta.style.opacity = isContactVisible ? "0" : "1";
-    mobileCta.style.pointerEvents = isContactVisible ? "none" : "auto";
-    mobileCta.setAttribute("aria-hidden", isContactVisible ? "true" : "false");
+    const isContactNear = rect.top < window.innerHeight * 0.65;
+    mobileCta.style.opacity = isContactNear ? "0" : "1";
+    mobileCta.style.pointerEvents = isContactNear ? "none" : "auto";
+    mobileCta.setAttribute("aria-hidden", isContactNear ? "true" : "false");
   }
 
   window.addEventListener("scroll", onScroll, { passive: true });
