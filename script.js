@@ -37,6 +37,7 @@
         }
       }
     }, { threshold: 0.12 });
+
     els.forEach(el => io.observe(el));
   }
 
@@ -56,9 +57,7 @@
     const y = window.scrollY || 0;
 
     // show back-to-top after some scroll
-    if (backToTop) {
-      backToTop.style.display = y > 700 ? "block" : "none";
-    }
+    if (backToTop) backToTop.style.display = y > 700 ? "block" : "none";
 
     if (!mobileCta || !contact) return;
 
