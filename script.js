@@ -56,12 +56,9 @@
   function onScroll() {
     const y = window.scrollY || 0;
 
-    // show back-to-top after some scroll
     if (backToTop) backToTop.style.display = y > 700 ? "block" : "none";
 
     if (!mobileCta || !contact) return;
-
-    // hide CTA when approaching contact
     const rect = contact.getBoundingClientRect();
     const isContactNear = rect.top < window.innerHeight * 0.65;
     mobileCta.style.opacity = isContactNear ? "0" : "1";
