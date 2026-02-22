@@ -1,3 +1,4 @@
+<!-- index.html -->
 <!doctype html>
 <html lang="en">
 <head>
@@ -8,27 +9,9 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-  <!-- Optional: modern, clean font -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="styles.css" />
-
-  <!-- Tiny style add-on to make Zoho embed look seamless -->
-  <style>
-    .zoho-embed {
-      width: 100%;
-      border: 1px solid var(--line, rgba(255,255,255,.12));
-      border-radius: 16px;
-      overflow: hidden;
-      background: rgba(255,255,255,.02);
-    }
-    .zoho-embed iframe{
-      width: 100% !important;
-      border: 0 !important;
-      display: block;
-    }
-  </style>
 </head>
 <body>
   <!-- Top announcement bar -->
@@ -336,130 +319,85 @@
       <div class="container">
         <div class="section__header">
           <h2>FAQ</h2>
-          <p>Common questions about multifamily investing, syndications, and what to expect with WLV Investing.</p>
+          <p>Common questions potential investors may have about multifamily investing, syndications, and what to expect with WLV Investing.</p>
         </div>
 
         <div class="faq" role="region" aria-label="Frequently Asked Questions">
           <details class="faq__item">
             <summary>What is a multifamily syndication?</summary>
             <div class="faq__content">
-              <p>
-                A syndication is a structure where multiple investors pool capital to acquire a property.
-                Typically, a sponsor team sources the deal, arranges financing, manages operations, and provides reporting.
-              </p>
+              <p>A syndication is a structure where multiple investors pool capital to acquire a property. A sponsor team sources the deal, arranges financing, manages operations, and provides reporting.</p>
             </div>
           </details>
 
           <details class="faq__item">
             <summary>What’s the difference between a syndication and a joint venture?</summary>
             <div class="faq__content">
-              <p>
-                In a syndication, passive investors typically participate as limited partners. In a joint venture,
-                partners often share more direct involvement, roles, and decision-making—based on the agreement.
-              </p>
+              <p>In a syndication, passive investors typically participate as limited partners. In a joint venture, partners often share more direct involvement and decision-making—based on the agreement.</p>
             </div>
           </details>
 
           <details class="faq__item">
             <summary>Do I need to be accredited to invest?</summary>
             <div class="faq__content">
-              <p>
-                It depends on the offering structure. Some opportunities may be open to non-accredited investors,
-                while others may be limited to accredited investors only.
-              </p>
+              <p>It depends on the offering structure. Some opportunities may be open to non-accredited investors, while others may be limited to accredited investors only.</p>
             </div>
           </details>
 
           <details class="faq__item">
             <summary>How do you manage risk?</summary>
             <div class="faq__content">
-              <p>
-                We focus on conservative underwriting, stress-testing scenarios, and operational execution that prioritizes
-                durable cash flow and downside protection. Every investment carries risk, and we aim to make risks clear.
-              </p>
+              <p>We focus on conservative underwriting, stress-testing scenarios, and operational execution that prioritizes durable cash flow and downside protection.</p>
             </div>
           </details>
 
           <details class="faq__item">
             <summary>How often will I receive updates?</summary>
             <div class="faq__content">
-              <p>
-                Update frequency can vary by deal, but our goal is consistent, predictable reporting with clear performance
-                metrics and progress on the business plan.
-              </p>
+              <p>Update frequency can vary by deal, but our goal is consistent, predictable reporting with clear performance metrics and progress updates.</p>
             </div>
           </details>
 
           <details class="faq__item">
             <summary>How do I get notified about future deals?</summary>
             <div class="faq__content">
-              <p>
-                Submit the contact form below. We’ll follow up and add you to our investor communications (you can opt out anytime).
-              </p>
+              <p>Submit the contact form below. We’ll follow up and add you to our investor communications (you can opt out anytime).</p>
             </div>
           </details>
         </div>
       </div>
     </section>
 
-    <!-- Contact -->
+    <!-- Contact (FULL WIDTH) -->
     <section class="section" id="contact">
       <div class="container">
         <div class="section__header">
           <h2>Contact</h2>
-          <p>Send your name and email. We’ll follow up with investor information and next steps.</p>
+          <p>Fill out the form below. We’ll follow up with investor information and next steps.</p>
         </div>
 
-        <div class="contact">
-          <div class="contact__left">
-            <div class="card">
-              <h3>Request Investor Info</h3>
-              <p class="muted">Fill out the form and we’ll reach out shortly.</p>
+        <div class="card contact-full">
+          <h3>Request Investor Info</h3>
+          <p class="muted">This form is connected to our CRM for follow-up.</p>
 
-              <!-- Zoho Form Embed (replaces the old HTML form) -->
-              <div class="zoho-embed">
-                <iframe
-                  aria-label="Contact Us"
-                  frameborder="0"
-                  style="height:860px;width:100%;border:none;"
-                  src="https://forms.zohopublic.com/adminwlvinv1/form/ContactUs/formperma/1prBmvgOcUUes6PQ2rUyDjakC-Nfwnr-19i2W3uA2ac">
-                </iframe>
-              </div>
-
-              <p class="microcopy" style="margin-top:12px;">
-                We respect your privacy. No spam. Unsubscribe anytime.
-              </p>
-            </div>
+          <div class="zoho-embed">
+            <iframe
+              aria-label="Contact Us"
+              frameborder="0"
+              scrolling="no"
+              style="height:980px;width:100%;border:none;overflow:hidden;"
+              src="https://forms.zohopublic.com/adminwlvinv1/form/ContactUs/formperma/1prBmvgOcUUes6PQ2rUyDjakC-Nfwnr-19i2W3uA2ac">
+            </iframe>
           </div>
 
-          <div class="contact__right">
-            <div class="card card--glass">
-              <h3>Next Steps</h3>
-              <ul class="bullets">
-                <li>We’ll confirm your request and share investor information.</li>
-                <li>You can ask questions and learn how syndications/JVs work.</li>
-                <li>When an opportunity fits, we’ll share clear details and timelines.</li>
-              </ul>
+          <p class="microcopy" style="margin-top:12px;">
+            We respect your privacy. No spam. Unsubscribe anytime.
+          </p>
 
-              <div class="card__divider"></div>
-
-              <h4 class="muted">Optional Contact Info</h4>
-              <p class="muted">
-                Add your email/phone here if you want them displayed publicly:
-              </p>
-              <p class="muted">
-                <strong>Email:</strong> info@wlvinvesting.com<br/>
-                <strong>Location:</strong> Midwest, USA
-              </p>
-
-              <div class="card__divider"></div>
-
-              <p class="microcopy">
-                This website is for informational purposes only and does not constitute an offer to sell or a solicitation
-                to buy securities. Any offering is made only via official offering documents.
-              </p>
-            </div>
-          </div>
+          <p class="microcopy">
+            This website is for informational purposes only and does not constitute an offer to sell or a solicitation
+            to buy securities. Any offering is made only via official offering documents.
+          </p>
         </div>
       </div>
     </section>
