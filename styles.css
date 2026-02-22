@@ -30,7 +30,7 @@ body{
   background: linear-gradient(180deg, var(--bg), var(--bg2));
 }
 
-/* ONE consistent global background glow (very subtle) */
+/* ONE consistent global background glow (subtle) */
 body::before{
   content:"";
   position:fixed;
@@ -43,7 +43,7 @@ body::before{
     radial-gradient(1100px 760px at 55% 95%, rgba(14,165,233,.06), transparent 68%);
 }
 
-/* Grain for premium texture */
+/* Grain texture */
 body::after{
   content:"";
   position:fixed;
@@ -109,7 +109,7 @@ a:hover{opacity:.92}
 .nav__menu a:hover{color:var(--text)}
 .nav__toggle{
   display:none;
-  border:1px solid var(--line);
+  border:1px solid rgba(255,255,255,.12);
   background: rgba(255,255,255,.04);
   border-radius: 12px;
   padding:10px;
@@ -156,7 +156,7 @@ a:hover{opacity:.92}
 .btn--full{width:100%}
 .btn--small{padding:10px 12px; border-radius: 12px; font-weight:900;}
 
-/* Sections: NO background changes per section */
+/* Sections: NO background/border changes per section */
 .section{
   padding:72px 0;
   position:relative;
@@ -167,17 +167,8 @@ a:hover{opacity:.92}
   position:relative;
   z-index:2;
 }
-.section--alt,
-.section--panel{
-  background: transparent;
-  border: none;
-}
 
-.section__header{max-width: 76ch; margin-bottom: 22px;}
-.section__header h2{margin:0 0 10px; font-size: 32px; letter-spacing:-0.02em;}
-.section__header p{margin:0; color:var(--muted);}
-
-/* Background shapes: more noticeable but still soft */
+/* Subtle visible shapes */
 .section--blob::before,
 .section--blob::after{
   content:"";
@@ -187,10 +178,8 @@ a:hover{opacity:.92}
   border-radius: 999px;
   filter: blur(26px);
   opacity: .75;
-  mix-blend-mode: screen; /* makes it show without banding */
+  mix-blend-mode: screen;
 }
-
-/* large ice-blue glow */
 .section--blob::before{
   width: 860px;
   height: 860px;
@@ -201,8 +190,6 @@ a:hover{opacity:.92}
     rgba(56,189,248,.10) 52%,
     transparent 72%);
 }
-
-/* large silver glow */
 .section--blob::after{
   width: 920px;
   height: 920px;
@@ -213,6 +200,10 @@ a:hover{opacity:.92}
     rgba(229,231,235,.07) 55%,
     transparent 74%);
 }
+
+.section__header{max-width: 76ch; margin-bottom: 22px;}
+.section__header h2{margin:0 0 10px; font-size: 32px; letter-spacing:-0.02em;}
+.section__header p{margin:0; color:var(--muted);}
 
 /* Hero */
 .hero{position:relative; padding:92px 0 32px; overflow:hidden;}
@@ -355,7 +346,6 @@ h1{
 .stat__label{color:rgba(255,255,255,.60); font-size:12px; letter-spacing:.08em; text-transform:uppercase}
 .stat__value{font-weight:900; font-size:18px; margin-top:6px}
 .stat__value--small{font-weight:600; font-size:13px; color:var(--muted)}
-.stat--note .stat__label{color: rgba(255,255,255,.50)}
 
 /* FAQ */
 .faq__item{
@@ -388,13 +378,6 @@ h1{
   background: linear-gradient(135deg, rgba(56,189,248,.55), rgba(14,165,233,.35));
   box-shadow: var(--shadow2);
 }
-.pstep__kicker{
-  color: rgba(255,255,255,.60);
-  font-size: 12px;
-  letter-spacing: .12em;
-  text-transform: uppercase;
-  margin-bottom: 6px;
-}
 
 /* Projects */
 .project__top{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-bottom:10px;}
@@ -407,34 +390,15 @@ h1{
   font-size:12px; font-weight:900;
 }
 .project__type{color: rgba(255,255,255,.60); font-size:12px; letter-spacing:.08em; text-transform: uppercase;}
-.project__title{margin:0 0 6px;}
-.project__meta{margin:0 0 10px; color: rgba(255,255,255,.65); font-size:13px;}
-.project__desc{margin:0; color: var(--muted);}
 
 /* Criteria */
-.criteria{
-  display:grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap:14px;
-}
-.criteria__k{
-  color: rgba(255,255,255,.60);
-  font-size:12px;
-  letter-spacing:.10em;
-  text-transform: uppercase;
-}
+.criteria{display:grid; grid-template-columns: repeat(3, 1fr); gap:14px;}
+.criteria__k{color: rgba(255,255,255,.60); font-size:12px; letter-spacing:.10em; text-transform: uppercase;}
 .criteria__v{font-weight:900; margin-top:6px;}
 .criteria__s{color: var(--muted); margin-top:8px; font-size:13px;}
 
 /* Contact + Zoho */
 .contact-full{padding: 22px;}
-.contact-full__head{
-  display:flex;
-  align-items:flex-start;
-  justify-content:flex-start;
-  gap:12px;
-  margin-bottom: 8px;
-}
 .zoho-embed{
   margin-top: 12px;
   border-radius: 18px;
@@ -443,11 +407,7 @@ h1{
   background: rgba(0,0,0,.18);
   box-shadow: var(--shadow2);
 }
-.zoho-embed iframe{
-  display:block;
-  width:100% !important;
-  border:0 !important;
-}
+.zoho-embed iframe{display:block; width:100% !important; border:0 !important;}
 
 /* Footer */
 .footer{
