@@ -37,51 +37,14 @@ a:hover{opacity:.92}
   margin:0 auto;
 }
 
-/* Topbar */
-.topbar{
-  position:sticky;
-  top:0;
-  z-index:50;
-  background: rgba(0,0,0,.42);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
-}
-.topbar__inner{
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-  padding:10px 0;
-  font-size: 13px;
-}
-.topbar__left{display:flex; align-items:center; gap:10px; color:var(--muted);}
-.topbar__dot{
-  width:8px; height:8px; border-radius:99px;
-  background: linear-gradient(90deg, var(--accent), var(--accent2));
-  display:inline-block;
-}
-.topbar__link{
-  font-weight:800;
-  padding:6px 10px;
-  border:1px solid var(--line);
-  border-radius:999px;
-  background: rgba(255,255,255,.04);
-  transition: transform .18s ease, background .18s ease, border-color .18s ease;
-}
-.topbar__link:hover{
-  transform: translateY(-1px);
-  background: rgba(255,255,255,.06);
-  border-color: rgba(255,255,255,.18);
-}
-
 /* Header */
 .header{
   position:sticky;
-  top:41px;
+  top:0;                /* changed from 41px */
   z-index:40;
   background: rgba(10,12,20,.60);
   backdrop-filter: blur(14px);
-  border-bottom:1px solid var(--line);
+  border-bottom:none;   /* removed header line */
 }
 .header__inner{
   display:flex;
@@ -96,14 +59,15 @@ a:hover{opacity:.92}
   min-width: 260px;
 }
 .brand__logo{
-  width: 46px;
-  height: 46px;
+  width: 44px;          /* smaller logo */
+  height: 44px;
   border-radius: 14px;
   object-fit: contain;
   background: rgba(255,255,255,.04);
   border: 1px solid rgba(255,255,255,.12);
   padding: 6px;
   box-shadow: var(--shadow2);
+  flex: 0 0 auto;
 }
 .brand__namewrap{display:flex; flex-direction:column; line-height:1.1;}
 .brand__name{font-weight:900; letter-spacing:-.01em}
@@ -502,7 +466,7 @@ h1{
 }
 @media (prefers-reduced-motion: reduce){
   .reveal{opacity:1; transform:none; transition:none;}
-  .btn, .card--lift, .trust__item, .topbar__link{transition:none;}
+  .btn, .card--lift, .trust__item{transition:none;}
 }
 
 /* Responsive */
@@ -521,7 +485,7 @@ h1{
   .nav__menu{
     position:absolute;
     right:20px;
-    top:96px;
+    top:82px;
     background: rgba(10,12,20,.92);
     border:1px solid var(--line);
     border-radius: 18px;
