@@ -30,7 +30,7 @@ body{
   background: linear-gradient(180deg, var(--bg), var(--bg2));
 }
 
-/* Global glow + grain */
+/* ONE consistent global background glow (very subtle) */
 body::before{
   content:"";
   position:fixed;
@@ -38,17 +38,19 @@ body::before{
   pointer-events:none;
   z-index:-2;
   background:
-    radial-gradient(900px 560px at 12% 6%, rgba(229,231,235,.10), transparent 62%),
-    radial-gradient(860px 560px at 88% 10%, rgba(56,189,248,.12), transparent 62%),
-    radial-gradient(900px 600px at 50% 95%, rgba(14,165,233,.08), transparent 65%);
+    radial-gradient(1000px 650px at 12% 5%, rgba(229,231,235,.08), transparent 62%),
+    radial-gradient(980px 640px at 88% 10%, rgba(56,189,248,.10), transparent 62%),
+    radial-gradient(1100px 760px at 55% 95%, rgba(14,165,233,.06), transparent 68%);
 }
+
+/* Grain for premium texture */
 body::after{
   content:"";
   position:fixed;
   inset:0;
   pointer-events:none;
   z-index:-1;
-  opacity:.10;
+  opacity:.09;
   background-image:
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='.35'/%3E%3C/svg%3E");
   background-size: 180px 180px;
@@ -143,7 +145,7 @@ a:hover{opacity:.92}
 .btn:active{transform: translateY(-1px);}
 .btn--ghost{
   background: rgba(255,255,255,.04);
-  border:1px solid var(--line);
+  border:1px solid rgba(255,255,255,.10);
   box-shadow:none;
 }
 .btn--ghost:hover{
@@ -154,36 +156,28 @@ a:hover{opacity:.92}
 .btn--full{width:100%}
 .btn--small{padding:10px 12px; border-radius: 12px; font-weight:900;}
 
-/* Sections (IMPORTANT: fixes mid-section banding) */
+/* Sections: NO background changes per section */
 .section{
   padding:72px 0;
   position:relative;
-
-  isolation:isolate; /* prevents blend/banding weirdness */
-  overflow:hidden;   /* clips effects */
+  isolation:isolate;
+  overflow:hidden;
 }
-
-/* Keep content above background effects */
 .section > .container{
   position:relative;
   z-index:2;
 }
-
-/* Simple alt panel: no internal gradients that cause "stripe" */
+.section--alt,
 .section--panel{
-  background: rgba(255,255,255,.02);
-}
-.section--alt{
-  background: rgba(255,255,255,.02);
-  border-top:1px solid var(--line);
-  border-bottom:1px solid var(--line);
+  background: transparent;
+  border: none;
 }
 
 .section__header{max-width: 76ch; margin-bottom: 22px;}
 .section__header h2{margin:0 0 10px; font-size: 32px; letter-spacing:-0.02em;}
 .section__header p{margin:0; color:var(--muted);}
 
-/* Visible abstract blobs (stronger but still professional) */
+/* Background shapes: more noticeable but still soft */
 .section--blob::before,
 .section--blob::after{
   content:"";
@@ -191,32 +185,33 @@ a:hover{opacity:.92}
   z-index:1;
   pointer-events:none;
   border-radius: 999px;
-  filter: blur(18px);
-  opacity: .85;
+  filter: blur(26px);
+  opacity: .75;
+  mix-blend-mode: screen; /* makes it show without banding */
 }
 
-/* top-left accent blob (ice blue) */
+/* large ice-blue glow */
 .section--blob::before{
-  width: 520px;
-  height: 520px;
-  left: -220px;
-  top: -180px;
+  width: 860px;
+  height: 860px;
+  left: -420px;
+  top: -420px;
   background: radial-gradient(circle at 35% 35%,
-    rgba(56,189,248,.38),
-    rgba(56,189,248,.12) 45%,
-    transparent 70%);
+    rgba(56,189,248,.26),
+    rgba(56,189,248,.10) 52%,
+    transparent 72%);
 }
 
-/* bottom-right silver blob */
+/* large silver glow */
 .section--blob::after{
-  width: 620px;
-  height: 620px;
-  right: -260px;
-  bottom: -240px;
+  width: 920px;
+  height: 920px;
+  right: -460px;
+  bottom: -520px;
   background: radial-gradient(circle at 35% 35%,
-    rgba(229,231,235,.22),
-    rgba(229,231,235,.08) 50%,
-    transparent 72%);
+    rgba(229,231,235,.18),
+    rgba(229,231,235,.07) 55%,
+    transparent 74%);
 }
 
 /* Hero */
@@ -228,18 +223,18 @@ a:hover{opacity:.92}
   inset:-220px -220px auto -220px;
   height:560px;
   background:
-    radial-gradient(420px 300px at 25% 65%, rgba(56,189,248,.18), transparent 62%),
-    radial-gradient(380px 260px at 70% 35%, rgba(229,231,235,.10), transparent 62%),
-    radial-gradient(520px 320px at 55% 50%, rgba(14,165,233,.10), transparent 65%);
-  filter: blur(14px);
+    radial-gradient(420px 300px at 25% 65%, rgba(56,189,248,.16), transparent 62%),
+    radial-gradient(380px 260px at 70% 35%, rgba(229,231,235,.09), transparent 62%),
+    radial-gradient(520px 320px at 55% 50%, rgba(14,165,233,.08), transparent 65%);
+  filter: blur(16px);
   pointer-events:none;
-  opacity:.95;
+  opacity:.9;
 }
 
 .pill{
   display:inline-flex; align-items:center; gap:10px;
   padding:10px 14px; border-radius:999px;
-  border:1px solid var(--line);
+  border:1px solid rgba(255,255,255,.12);
   background: rgba(255,255,255,.04);
   color:var(--muted);
   font-size:13px;
@@ -265,7 +260,7 @@ h1{
   gap:12px; margin-top:26px;
 }
 .trust__item{
-  border:1px solid var(--line);
+  border:1px solid rgba(255,255,255,.12);
   background: rgba(255,255,255,.03);
   border-radius: var(--radius);
   padding:14px;
@@ -273,7 +268,7 @@ h1{
 }
 .trust__item:hover{
   transform: translateY(-2px);
-  border-color: rgba(255,255,255,.18);
+  border-color: rgba(56,189,248,.24);
   background: rgba(255,255,255,.05);
 }
 .trust__num{font-weight:900; font-size:12px; letter-spacing:.14em; color: rgba(255,255,255,.70); margin-bottom:8px;}
@@ -281,7 +276,7 @@ h1{
 
 /* Cards */
 .card{
-  border:1px solid var(--line);
+  border:1px solid rgba(255,255,255,.12);
   background: rgba(255,255,255,.04);
   border-radius: var(--radius2);
   padding:20px;
@@ -295,16 +290,16 @@ h1{
 .card--lift:hover{
   transform: translateY(-3px);
   background: rgba(255,255,255,.06);
-  border-color: rgba(56,189,248,.28);
+  border-color: rgba(56,189,248,.26);
   box-shadow: var(--shadow2);
 }
 
 .card__title{margin:0 0 12px; font-size:18px; letter-spacing:-.01em}
-.card__divider{height:1px; background: var(--line); margin:14px 0;}
+.card__divider{height:1px; background: rgba(255,255,255,.12); margin:14px 0;}
 
 .mini-stats{display:grid; grid-template-columns: 1fr; gap:10px;}
 .mini-stat{
-  border:1px solid var(--line);
+  border:1px solid rgba(255,255,255,.12);
   background: rgba(255,255,255,.03);
   border-radius: 16px;
   padding:12px;
@@ -337,7 +332,7 @@ h1{
 .callout{
   margin-top:18px;
   border-radius: var(--radius2);
-  border:1px solid rgba(255,255,255,.16);
+  border:1px solid rgba(255,255,255,.14);
   background: linear-gradient(135deg, rgba(56,189,248,.10), rgba(229,231,235,.05));
   padding:18px;
   display:flex;
@@ -350,12 +345,12 @@ h1{
 
 /* Statcard */
 .statcard{
-  border:1px solid var(--line);
+  border:1px solid rgba(255,255,255,.12);
   background: rgba(255,255,255,.03);
   border-radius: var(--radius2);
   padding:18px;
 }
-.stat{padding:12px 0; border-bottom:1px solid var(--line);}
+.stat{padding:12px 0; border-bottom:1px solid rgba(255,255,255,.12);}
 .stat:last-child{border-bottom:none}
 .stat__label{color:rgba(255,255,255,.60); font-size:12px; letter-spacing:.08em; text-transform:uppercase}
 .stat__value{font-weight:900; font-size:18px; margin-top:6px}
@@ -364,7 +359,7 @@ h1{
 
 /* FAQ */
 .faq__item{
-  border:1px solid var(--line);
+  border:1px solid rgba(255,255,255,.12);
   border-radius: var(--radius2);
   background: rgba(255,255,255,.03);
   padding:6px 14px;
@@ -382,7 +377,7 @@ h1{
   top: 10px;
   bottom: 10px;
   width: 2px;
-  background: linear-gradient(180deg, rgba(56,189,248,.30), rgba(229,231,235,.20));
+  background: linear-gradient(180deg, rgba(56,189,248,.26), rgba(229,231,235,.16));
   opacity: .65;
 }
 .process__steps{display:grid; gap: 14px;}
@@ -456,7 +451,7 @@ h1{
 
 /* Footer */
 .footer{
-  border-top:1px solid var(--line);
+  border-top:1px solid rgba(255,255,255,.12);
   padding:28px 0;
   background: rgba(0,0,0,.18);
 }
@@ -565,7 +560,7 @@ h1{
     right:20px;
     top:120px;
     background: rgba(10,12,20,.92);
-    border:1px solid var(--line);
+    border:1px solid rgba(255,255,255,.12);
     border-radius: 18px;
     padding:10px;
     display:none;
