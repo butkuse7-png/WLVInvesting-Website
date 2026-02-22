@@ -28,17 +28,48 @@
   const els = Array.from(document.querySelectorAll(".reveal"));
   if (!("IntersectionObserver" in window) || els.length === 0) {
     els.forEach(el => el.classList.add("is-visible"));
-    return;
+  } else {
+    const io = new IntersectionObserver((entries) => {
+      for (const e of entries) {
+        if (e.isIntersecting) {
+          e.target.classList.add("is-visible");
+          io.unobserve(e.target);
+        }
+      }
+    }, { threshold: 0.12 });
+    els.forEach(el => io.observe(el));
   }
 
-  const io = new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      if (e.isIntersecting) {
-        e.target.classList.add("is-visible");
-        io.unobserve(e.target);
-      }
-    }
-  }, { threshold: 0.12 });
+  // Back to top
+  const backToTop = document.getElementById("backToTop");
+  if (backToTop) {
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+  }
 
-  els.forEach(el => io.observe(el));
+  // Mobile sticky CTA (hide when near contact section)
+  const mobileCta = document.getElementById("mobileCta");
+  const contact = document.getElementById("contact");
+
+  function onScroll() {
+    const y = window.scrollY || 0;
+
+    // show back-to-top after some scroll
+    if (backToTop) {
+      backToTop.style.display = y > 600 ? "block" : "none";
+    }
+
+    if (!mobileCta || !contact) return;
+
+    // if we're close to the contact section, hide the CTA (so it doesn't feel redundant)
+    const rect = contact.getBoundingClientRect();
+    const isContactVisible = rect.top < window.innerHeight * 0.65; // approaching contact
+    mobileCta.style.opacity = isContactVisible ? "0" : "1";
+    mobileCta.style.pointerEvents = isContactVisible ? "none" : "auto";
+    mobileCta.setAttribute("aria-hidden", isContactVisible ? "true" : "false");
+  }
+
+  window.addEventListener("scroll", onScroll, { passive: true });
+  onScroll();
 })();
