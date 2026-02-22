@@ -25,71 +25,36 @@ body{
   line-height:1.55;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
-
-  /* The true background is global and continuous */
   background: transparent;
 }
 
-/* ONE continuous background: gradient + visible shapes */
+/* GLOBAL background: one continuous gradient + visible shapes */
 body::before{
   content:"";
   position:fixed;
   inset:0;
   pointer-events:none;
   z-index:-2;
-
-  /* This is the “global canvas”: gradient + blobs */
   background:
-    /* base full-page gradient */
     linear-gradient(180deg, var(--bg), var(--bg2)),
 
-    /* BIG ambient glows (more noticeable) */
-    radial-gradient(1200px 900px at 8% 0%,
-      rgba(229,231,235,.14),
-      transparent 70%),
-    radial-gradient(1200px 900px at 92% 6%,
-      rgba(56,189,248,.18),
-      transparent 72%),
-    radial-gradient(1400px 1000px at 55% 110%,
-      rgba(14,165,233,.12),
-      transparent 74%),
+    radial-gradient(1200px 900px at 8% 0%, rgba(229,231,235,.14), transparent 70%),
+    radial-gradient(1200px 900px at 92% 6%, rgba(56,189,248,.18), transparent 72%),
+    radial-gradient(1400px 1000px at 55% 110%, rgba(14,165,233,.12), transparent 74%),
 
-    /* “random” ice-blue blobs (noticeable) */
-    radial-gradient(560px 560px at 18% 24%,
-      rgba(56,189,248,.18),
-      transparent 70%),
-    radial-gradient(520px 520px at 78% 22%,
-      rgba(56,189,248,.14),
-      transparent 70%),
-    radial-gradient(600px 600px at 62% 48%,
-      rgba(56,189,248,.12),
-      transparent 72%),
-    radial-gradient(560px 560px at 10% 70%,
-      rgba(56,189,248,.12),
-      transparent 74%),
-    radial-gradient(520px 520px at 88% 78%,
-      rgba(56,189,248,.10),
-      transparent 74%),
+    radial-gradient(560px 560px at 18% 24%, rgba(56,189,248,.18), transparent 70%),
+    radial-gradient(520px 520px at 78% 22%, rgba(56,189,248,.14), transparent 70%),
+    radial-gradient(600px 600px at 62% 48%, rgba(56,189,248,.12), transparent 72%),
+    radial-gradient(560px 560px at 10% 70%, rgba(56,189,248,.12), transparent 74%),
+    radial-gradient(520px 520px at 88% 78%, rgba(56,189,248,.10), transparent 74%),
 
-    /* “random” silver blobs */
-    radial-gradient(620px 620px at 34% 16%,
-      rgba(229,231,235,.10),
-      transparent 72%),
-    radial-gradient(540px 540px at 52% 34%,
-      rgba(229,231,235,.09),
-      transparent 74%),
-    radial-gradient(640px 640px at 30% 90%,
-      rgba(229,231,235,.09),
-      transparent 74%),
-    radial-gradient(600px 600px at 72% 92%,
-      rgba(229,231,235,.08),
-      transparent 74%);
-
-  /* Helps blobs feel softer */
-  filter: saturate(1.05);
+    radial-gradient(620px 620px at 34% 16%, rgba(229,231,235,.10), transparent 72%),
+    radial-gradient(540px 540px at 52% 34%, rgba(229,231,235,.09), transparent 74%),
+    radial-gradient(640px 640px at 30% 90%, rgba(229,231,235,.09), transparent 74%),
+    radial-gradient(600px 600px at 72% 92%, rgba(229,231,235,.08), transparent 74%);
 }
 
-/* Grain layer (continuous) */
+/* Grain layer */
 body::after{
   content:"";
   position:fixed;
@@ -114,7 +79,7 @@ a:hover{opacity:.92}
   z-index:40;
   background: rgba(10,12,20,.72);
   backdrop-filter: blur(14px);
-  border: none; /* keep seams gone */
+  border: none;
 }
 .header__inner{
   display:flex;
@@ -202,7 +167,7 @@ a:hover{opacity:.92}
 .btn--full{width:100%}
 .btn--small{padding:10px 12px; border-radius: 12px; font-weight:900;}
 
-/* Sections (no borders / no alt backgrounds = no seams) */
+/* Sections */
 .section{
   padding:72px 0;
   position:relative;
@@ -465,21 +430,11 @@ h1{
 }
 .backtotop:hover{transform: translateY(-2px);}
 
-/* Reveal */
-.reveal{
-  opacity: 0;
-  transform: translateY(10px);
-  transition: opacity .6s ease, transform .6s ease;
-}
-.reveal.is-visible{
-  opacity: 1;
-  transform: transl
-::contentReference[oaicite:0]{index=0}
-ateY(0);
-}
-@media (prefers-reduced-motion: reduce){
-  .reveal{opacity:1; transform:none; transition:none;}
-  .btn, .card--lift, .trust__item, .backtotop{transition:none;}
+/* ✅ FIXED REVEAL: Visible by default, animates only when JS adds .is-visible */
+.reveal{ opacity: 1; transform: none; }
+@media (prefers-reduced-motion: no-preference){
+  .reveal{ opacity: 0; transform: translateY(10px); transition: opacity .6s ease, transform .6s ease; }
+  .reveal.is-visible{ opacity: 1; transform: translateY(0); }
 }
 
 @media (max-width: 980px){
