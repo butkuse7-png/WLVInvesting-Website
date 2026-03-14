@@ -372,15 +372,6 @@ h1{
 .criteria__s{color: rgba(255,255,255,.68); margin-top:8px; font-size:13px;}
 
 .contact-full{padding: 22px;}
-.zoho-embed{
-  margin-top: 12px;
-  border-radius: 18px;
-  overflow: hidden;
-  border: 1px solid rgba(255,255,255,.14);
-  background: rgba(0,0,0,.18);
-  box-shadow: var(--shadow2);
-}
-.zoho-embed iframe{display:block; width:100% !important; border:0 !important;}
 
 .footer{
   border: none;
